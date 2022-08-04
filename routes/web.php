@@ -72,5 +72,5 @@ Route::prefix('lainlain')->group(function(){
 Route::prefix('unitkerja')->group(function(){
     Route::get('/view', [UnitKerjaController::class, 'unitkerjaview'])->name('unitkerja.view');
     Route::get('/add', [UnitKerjaController::class, 'unitkerjaadd'])->name('unitkerja.add');
-    Route::get('/store', [UnitKerjaController::class, 'unitkerjastore'])->name('unitkerja.store');
+    Route::post('/store', [UnitKerjaController::class, 'unitkerjastore'])->name('unitkerja.store');
 });

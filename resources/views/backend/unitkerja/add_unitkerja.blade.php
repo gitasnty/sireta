@@ -18,13 +18,14 @@
 			  <div class="row">
 				<div class="col">
 					<form method="post" action="{{ route('unitkerja.store') }}">
+						@csrf
 					  <div class="row">
 						<div class="col-6">
 							<div class="form-group">
 								<h5>Tipe Unit Kerja<span class="text-danger">*</span></h5>
 								<div class="controls">
-									<select name="usertype" id="select" class="form-control" aria-invalid="false">
-										<option value="">Pilih Tipe</option>
+									<select name="usertype" id="usertype" class="form-control">
+										<option value="" selected="" disabled="">Pilih Tipe</option>
 										<option value="admin">Admin</option>
 										<option value="user">Unit Kerja</option>
 									</select>
@@ -35,33 +36,33 @@
 							<div class="form-group">
 								<h5>Nama Unit Kerja<span class="text-danger">*</span></h5>
 								<div class="controls">
-									<input type="text" name="name" class="form-control" required data-validation-required-message="This field is required"> </div>
+									<input type="text" name="name" class="form-control" required=""> </div>
 							</div>
 						</div>						
 						<div class="col-12">						
                             <div class="form-group">
 								<h5>Penanggung Jawab<span class="text-danger">*</span></h5>
 								<div class="controls">
-									<input type="text" name="pj" class="form-control" required data-validation-required-message="This field is required"> </div>
+									<input type="text" name="pj" class="form-control" required=""> </div>
 							</div>
 						</div>
 						<div class="col-6">
                             <div class="form-group">
 								<h5>Username (email)<span class="text-danger">*</span></h5>
 								<div class="controls">
-									<input type="email" name="email" class="form-control" required data-validation-required-message="This field is required"> </div>
+									<input type="email" name="email" class="form-control" required=""> </div>
 							</div>
 						</div>
 						<div class="col-6">
                             <div class="form-group">
 								<h5>Password<span class="text-danger">*</span></h5>
 								<div class="controls">
-									<input type="passsword" name="password" class="form-control" required data-validation-required-message="This field is required"> </div>
+									<input type="password" name="password" class="form-control" required=""> </div>
 							</div>
 						</div>
 					  </div>
 						<div class="text-xs-right">
-							<button type="submit" class="btn btn-rounded btn-info">Submit</button>
+							<input type="submit" class="btn btn-rounded btn-info"></input>
 						</div>
 					</form>
 

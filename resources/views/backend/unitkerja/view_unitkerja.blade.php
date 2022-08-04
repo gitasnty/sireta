@@ -29,20 +29,20 @@
 							</tr>
 						</thead>
 						<tbody>
-							@foreach($allData as $key=>$user) {
+							@foreach($allData as $key=>$user) 
 								
 							<tr>
 								<td width=5% >{{ $key+1 }}</td>
 								<td width=25%>{{ $user->name }}</td>
 								<td width=20%>{{ $user->pj }}</td>
 								<td width=20%>{{ $user->email }}</td>
-								<td width=15%></td>
+								<td width=15%>{{ $user->password }}</td>
 								<td width=15%>
 									<a href="#" type="button" class="btn btn-info"><i class="fa fa-edit"></i></a>
                                     <a href="#" type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
                             	</td>
 							</tr>
-							}
+							
 							
 							@endforeach
 						</tbody>				  

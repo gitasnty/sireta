@@ -19,10 +19,18 @@ class UnitKerjaController extends Controller
 
     public function unitkerjastore(Request $request){
         $validatedData = $request->validate([
-           'email' => 'required|uniqe:users',
+           'email' => 'required',
            'name' => 'required'
         ]);
 
         $data = new User();
+        $data->usertype = $request->usertype;
+        $data->name = $request->name;
+        $data->pj = $request->pj;
+        $data->email = $request->email;
+        $data->password = $request->password;
+        $data->save();
+
+        return redirect()->route('unitkerja.view');
     }
 }
