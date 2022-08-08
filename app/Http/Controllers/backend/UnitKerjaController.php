@@ -31,6 +31,12 @@ class UnitKerjaController extends Controller
         $data->password = $request->password;
         $data->save();
 
-        return redirect()->route('unitkerja.view');
+        $notification = array(
+            'message' => 'Unit Kerja Berhasil Ditambahkan',
+            'alert-type ' => 'Sukses'
+
+        );
+
+        return redirect()->route('unitkerja.view')->with($notification);
     }
 }
