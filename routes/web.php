@@ -39,38 +39,41 @@ Route::get('/admin/logout', [AdminController::class, 'Logout'])->name('admin.log
 
 //Manual Mutu
 Route::prefix('manualmutu')->group(function(){
-    Route::get('/view', [ManualMutuController::class, 'manualmutuview'])->name('manualmutu.view');
-    Route::get('/add', [ManualMutuController::class, 'manualmutuadd'])->name('manualmutu.add');
+    Route::get('/view', [ManualMutuController::class, 'manualmutuView'])->name('manualmutu.view');
+    Route::get('/add', [ManualMutuController::class, 'manualmutuAdd'])->name('manualmutu.add');
 });
 
 //Prosedur Mutu
 Route::prefix('prosedurmutu')->group(function(){
-    Route::get('/view', [ProsedurMutuController::class, 'prosedurmutuview'])->name('prosedurmutu.view');
-    Route::get('/add', [ProsedurMutuController::class, 'prosedurmutuadd'])->name('prosedurmutu.add');
+    Route::get('/view', [ProsedurMutuController::class, 'prosedurmutuView'])->name('prosedurmutu.view');
+    Route::get('/add', [ProsedurMutuController::class, 'prosedurmutuAdd'])->name('prosedurmutu.add');
 });
 
 //Petunjuk Kerja
 Route::prefix('petunjukkerja')->group(function(){
-    Route::get('/view', [PetunjukKerjaController::class, 'petunjukkerjaview'])->name('petunjukkerja.view');
-    Route::get('/add', [PetunjukKerjaController::class, 'petunjukkerjaadd'])->name('petunjukkerja.add');
+    Route::get('/view', [PetunjukKerjaController::class, 'petunjukkerjaView'])->name('petunjukkerja.view');
+    Route::get('/add', [PetunjukKerjaController::class, 'petunjukkerjaAdd'])->name('petunjukkerja.add');
 });
 
 //Catatan Mutu
 Route::prefix('catatanmutu')->group(function(){
-    Route::get('/view', [CatatanMutuController::class, 'catatanmutuview'])->name('catatanmutu.view');
-    Route::get('/add', [CatatanMutuController::class, 'catatanmutuadd'])->name('catatanmutu.add');
+    Route::get('/view', [CatatanMutuController::class, 'catatanmutuView'])->name('catatanmutu.view');
+    Route::get('/add', [CatatanMutuController::class, 'catatanmutuAdd'])->name('catatanmutu.add');
 });
 
 //Lain Lain
 Route::prefix('lainlain')->group(function(){
-    Route::get('/strukturorganisasi', [lainlainController::class, 'lainlainstrukturorganisasi'])->name('lainlain.strukturorganisasi');
-    Route::get('/sasaranmutu', [lainlainController::class, 'lainlainsasaranmutu'])->name('lainlain.sasaranmutu');
-    Route::get('/proker', [lainlainController::class, 'lainlainproker'])->name('lainlain.proker');
+    Route::get('/strukturorganisasi', [lainlainController::class, 'lainlainstrukturOrganisasi'])->name('lainlain.strukturorganisasi');
+    Route::get('/sasaranmutu', [lainlainController::class, 'lainlainSasaranmutu'])->name('lainlain.sasaranmutu');
+    Route::get('/proker', [lainlainController::class, 'lainlainProker'])->name('lainlain.proker');
 });
 
 //Unit Kerja
 Route::prefix('unitkerja')->group(function(){
-    Route::get('/view', [UnitKerjaController::class, 'unitkerjaview'])->name('unitkerja.view');
-    Route::get('/add', [UnitKerjaController::class, 'unitkerjaadd'])->name('unitkerja.add');
-    Route::post('/store', [UnitKerjaController::class, 'unitkerjastore'])->name('unitkerja.store');
+    Route::get('/view', [UnitKerjaController::class, 'unitkerjaView'])->name('unitkerja.view');
+    Route::get('/add', [UnitKerjaController::class, 'unitkerjaAdd'])->name('unitkerja.add');
+    Route::post('/store', [UnitKerjaController::class, 'unitkerjaStore'])->name('unitkerja.store');
+    Route::get('/edit/{id}', [UnitKerjaController::class, 'unitkerjaEdit'])->name('unitkerja.edit');
+    Route::post('/update/{id}', [UnitKerjaController::class, 'unitkerjaUpdate'])->name('unitkerja.update');
+    Route::get('/delete/{id}', [UnitKerjaController::class, 'unitkerjaDelete'])->name('unitkerja.delete');
 });
