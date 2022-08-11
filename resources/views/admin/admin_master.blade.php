@@ -57,6 +57,38 @@
 	<script src="{{ asset('backend/js/template.js')}}"></script>
 	<script src="{{ asset('backend/js/pages/dashboard.js')}}"></script>
 
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script type="text/javascript">
+        $(function(){
+            $(document).on('click', '#delete', function(e){
+                e.preventDefault();
+                var link = $(this).attr("href");
+
+                    Swal.fire({
+                    title: 'Anda Yakin?',
+                    text: "Perintah ini tidak bisa dikembalikan",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    cancelButtonText: 'Kembali',
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Ya, Hapus ini!'
+                    }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = link
+                        Swal.fire(
+                        'Dihapus!',
+                        'File Anda telah terhapus',
+                        'success'
+                        )
+                    }
+                    })
+
+            });
+        });
+
+    </script>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
