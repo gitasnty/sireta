@@ -41,24 +41,28 @@ Route::get('/admin/logout', [AdminController::class, 'Logout'])->name('admin.log
 Route::prefix('manualmutu')->group(function(){
     Route::get('/view', [ManualMutuController::class, 'manualmutuView'])->name('manualmutu.view');
     Route::get('/add', [ManualMutuController::class, 'manualmutuAdd'])->name('manualmutu.add');
+    Route::post('/store', [ManualMutuController::class, 'manualmutuStore'])->name('manualmutu.store');
 });
 
 //Prosedur Mutu
 Route::prefix('prosedurmutu')->group(function(){
     Route::get('/view', [ProsedurMutuController::class, 'prosedurmutuView'])->name('prosedurmutu.view');
     Route::get('/add', [ProsedurMutuController::class, 'prosedurmutuAdd'])->name('prosedurmutu.add');
+    Route::post('/store', [ProsedurMutuController::class, 'prosedurmutuStore'])->name('prosedurmutu.store');
 });
 
 //Petunjuk Kerja
 Route::prefix('petunjukkerja')->group(function(){
     Route::get('/view', [PetunjukKerjaController::class, 'petunjukkerjaView'])->name('petunjukkerja.view');
     Route::get('/add', [PetunjukKerjaController::class, 'petunjukkerjaAdd'])->name('petunjukkerja.add');
+    Route::post('/store', [PetunjukKerjaController::class, 'petunjukkerjaStore'])->name('petunjukkerja.store');
 });
 
 //Catatan Mutu
 Route::prefix('catatanmutu')->group(function(){
     Route::get('/view', [CatatanMutuController::class, 'catatanmutuView'])->name('catatanmutu.view');
     Route::get('/add', [CatatanMutuController::class, 'catatanmutuAdd'])->name('catatanmutu.add');
+    Route::post('/store', [CatatanMutuController::class, 'catatanmutuStore'])->name('catatanmutu.store');
 });
 
 //Lain Lain
