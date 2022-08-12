@@ -28,7 +28,7 @@ class UnitKerjaController extends Controller
         $data->name = $request->name;
         $data->pj = $request->pj;
         $data->email = $request->email;
-        $data->password = $request->password;
+        $data->password = bcrypt($request->password);
         $data->save();
 
         $notification = array(
