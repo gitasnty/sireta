@@ -8,6 +8,7 @@ use App\Http\Controllers\backend\CatatanMutuController;
 use App\Http\Controllers\backend\PetunjukKerjaController;
 use App\Http\Controllers\backend\LainLainController;
 use App\Http\Controllers\backend\UnitKerjaController;
+use App\Http\Controllers\backend\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -80,4 +81,10 @@ Route::prefix('unitkerja')->group(function(){
     Route::get('/edit/{id}', [UnitKerjaController::class, 'unitkerjaEdit'])->name('unitkerja.edit');
     Route::post('/update/{id}', [UnitKerjaController::class, 'unitkerjaUpdate'])->name('unitkerja.update');
     Route::get('/delete/{id}', [UnitKerjaController::class, 'unitkerjaDelete'])->name('unitkerja.delete');
+});
+
+//User Profile and Change Password
+Route::prefix('profile')->group(function(){
+    Route::get('/view', [ProfileController::class, 'profileView'])->name('profile.view');
+
 });
