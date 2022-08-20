@@ -24,7 +24,6 @@
 								<th>Nama Unit Kerja</th>
 								<th>Penanggung Jawab</th>
 								<th>Email</th>
-								<th>Password</th>
 								<th>Action</th>
 							</tr>
 						</thead>
@@ -34,9 +33,8 @@
 							<tr>
 								<td width=5% >{{ $key+1 }}</td>
 								<td width=25%>{{ $user->name }}</td>
-								<td width=20%>{{ $user->pj }}</td>
-								<td width=20%>{{ $user->email }}</td>
-								<td width=15%>{{ $user->password }}</td>
+								<td width=25%>{{ $user->pj }}</td>
+								<td width=25%>{{ $user->email }}</td>
 								<td width=15%>
 									<a href="{{ route('unitkerja.edit', $user->id) }}" type="button" class="btn btn-info"><i class="fa fa-edit"></i></a>
                                     <a href="{{ route('unitkerja.delete', $user->id) }}" type="button" class="btn btn-danger" id="delete"><i class="fa fa-trash"></i></button>
@@ -52,7 +50,6 @@
 								<th>Nama Unit Kerja</th>
 								<th>Penanggung Jawab</th>
 								<th>Email</th>
-								<th>Password</th>
 								<th>Action</th>
 							</tr>
 						</tfoot>
