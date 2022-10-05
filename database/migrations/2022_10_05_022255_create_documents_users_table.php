@@ -19,6 +19,8 @@ class CreateDocumentsUsersTable extends Migration
             $table->foreign('doc_id')->references('id')->on('documents')->onDelete('cascade');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->year('period');
+            $table->string('file_path');
             $table->timestamps();
         });
     }
