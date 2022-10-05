@@ -19,11 +19,11 @@
 				<div class="col">
 					<form novalidate>
 					  <div class="row">
-						<div class="col-12">						
+						<div class="col-12">
 							<div class="form-group">
 								<h5>Jenis Dokumen<span class="text-danger">*</span></h5>
 								<div class="controls">
-									<input type="text" name="text" text="Manual Mutu" class="form-control" required data-validation-required-message="This field is required"></div>
+									<input type="text" name="text" text="Manual Mutu" class="form-control" required data-validation-required-message="This field is required" value="Caatan Mutu" disabled="true"></div>
 								<div class="form-control-feedback"><small>Add <code>required</code> attribute to field for required validation.</small></div>
 							</div>
 							<div class="form-group">
