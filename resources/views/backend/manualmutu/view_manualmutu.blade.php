@@ -48,30 +48,20 @@
 								<td>4011/04/25</td>
 								<td><button href="#" type="button" class="btn btn-social-icon btn-google">Delete</button></td>
 							</tr>
-						</tbody>			  
-						<tfoot>
-							<tr>
-                                <th>Nomor Dokumen</th>
-								<th>Nama Dokumen</th>
-								<th>Unit Kerja</th>
-								<th>Upload</th>
-								<th>Standar</th>
-								<th>Periode</th>
-								<th>Delete</th>
-							</tr>
-						</tfoot>
+						</tbody>
+						
 
 					</table>
 					<div>
 
-			
+
 		</div>
-					</div>              
+					</div>
 				</div>
 				<!-- /.box-body -->
 			  </div>
-			  <!-- /.box -->  
-			          
+			  <!-- /.box -->
+
 			</div>
 			<!-- /.col -->
 		  </div>
@@ -79,7 +69,7 @@
 		</section>
 		<!-- /.content -->
 
-	  
+
 	  </div>
   </div>
 

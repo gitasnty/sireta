@@ -44,15 +44,6 @@
 
 							@endforeach
 						</tbody>
-						<tfoot>
-							<tr>
-								<th>No</th>
-								<th>Nama Unit Kerja</th>
-								<th>Penanggung Jawab</th>
-								<th>Email</th>
-								<th>Action</th>
-							</tr>
-						</tfoot>
 
 					</table>
 					<div>

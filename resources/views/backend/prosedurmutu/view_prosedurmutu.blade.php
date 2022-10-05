@@ -44,17 +44,7 @@
                                   <td><button href="#" type="button" class="btn btn-social-icon btn-google">Delete</button></td>
                               </tr>
                           </tbody>
-                          <tfoot>
-                              <tr>
-                                  <th>Nomor Dokumen</th>
-                                  <th>Nama Dokumen</th>
-                                  <th>Unit Kerja</th>
-                                  <th>Upload</th>
-                                  <th>Standar</th>
-                                  <th>Periode</th>
-                                  <th>Delete</th>
-                              </tr>
-                          </tfoot>
+                          
                       </table>
 					</div>
 				</div>
