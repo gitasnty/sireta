@@ -13,6 +13,7 @@ class CreateDocumentsUsersTable extends Migration
      */
     public function up()
     {
+        // schema::dropIfExists('documents_users');
         Schema::create('documents_users', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('doc_id');
@@ -32,6 +33,6 @@ class CreateDocumentsUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('documents_users');
+        Schema::drop('documents_users');
     }
 }

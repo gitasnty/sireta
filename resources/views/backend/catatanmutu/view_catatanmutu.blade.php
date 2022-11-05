@@ -32,6 +32,7 @@
 							</tr>
 						</thead>
 						<tbody>
+                            @foreach($data as $key=>$documents)
 							{{-- @foreach($allData as $key=>$user)
 
 							<tr>
@@ -48,12 +49,13 @@
 
 							@endforeach --}}
 							<tr>
-								<td>C10982</td>
-								<td>Prestasi Akademik</td>
-								<td>WKS 1</td>
+								<td>{{ $documents->code }}</td>
+								<td>{{ $documents->name }}</td>
+								<td>{{ $documents->Documents_Users}}</td>
 								{{-- <td><div><input type="file" class="btn btn-app btn-primary "></div></td> --}}
-								<td>standar 1</td>
-								<td>2021</td>
+								<td>{{ $documents->standard }}</td>
+								<td></td>
+								{{-- <td>{{ $documents->period }}</td> --}}
 								<td>
                                     {{-- <a href="" type="button" class="btn btn-circle btn-info">View</a> --}}
                                 </td>
@@ -68,6 +70,7 @@
 								{{-- <td><button href="#" type="button" class="btn btn-circle btn-danger btn-sm mb-5"><i class="glyphicon glyphicon-trash"></button></td> --}}
 
 							</tr>
+                            @endforeach
 						</tbody>
 
 					</table>
