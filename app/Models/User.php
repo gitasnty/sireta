@@ -61,8 +61,8 @@ class User extends Authenticatable
 
     public function Documents()
     {
+        return $this->hasMany(Document::class, 'doc_id'
    //return $this->belongsToMany(RelatedModel, pivot_table_name, foreign_key_of_current_model_in_pivot_table, foreign_key_of_other_model_in_pivot_table);
-   return $this->hasMany('App\Document'
         // Document::class,
         // 'documents_users',
         // 'user_id',

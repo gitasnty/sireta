@@ -61,10 +61,16 @@ Route::prefix('petunjukkerja')->group(function(){
 });
 
 //Catatan Mutu
-Route::prefix('catatanmutu')->group(function(){
-    Route::get('/view', [CatatanMutuController::class, 'catatanmutuView'])->name('catatanmutu.view');
-    Route::get('/add', [CatatanMutuController::class, 'catatanmutuAdd'])->name('catatanmutu.add');
-    Route::post('/store', [CatatanMutuController::class, 'catatanmutuStore'])->name('catatanmutu.store');
+
+Route::group([
+    'prefix' => 'catatanmutu',
+    'as' => 'catatanmutu.'
+],function(){
+    Route::get('/view', [CatatanMutuController::class, 'view'])->name('view');
+    Route::get('/add', [CatatanMutuController::class, 'add'])->name('add');
+    Route::post('/store', [CatatanMutuController::class, 'store'])->name('store');
+    Route::post('/upload', [CatatanMutuController::class, 'upload'])->name('upload');
+    Route::get('/download/{document}', [CatatanMutuController::class, 'download'])->name('download');
 });
 
 //Lain Lain
