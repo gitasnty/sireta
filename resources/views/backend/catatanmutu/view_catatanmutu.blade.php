@@ -28,25 +28,10 @@
 								<th>Periode</th>
 								<th>File</th>
 								<th>Action</th>
-								{{-- <th>Delete</th> --}}
+
 							</tr>
 						</thead>
 						<tbody>
-                            {{-- @foreach($allData as $key=>$user)
-
-                                <tr>
-                                    <td width=5% >{{ $key+1 }}</td>
-                                    <td width=25%>{{ $user->name }}</td>
-                                    <td width=25%>{{ $user->pj }}</td>
-                                    <td width=25%>{{ $user->email }}</td>
-                                    <td width=15%>
-                                        <a href="{{ route('unitkerja.edit', $user->id) }}" type="button" class="btn btn-info"><i class="fa fa-edit"></i></a>
-                                        <a href="{{ route('unitkerja.delete', $user->id) }}" type="button" class="btn btn-danger" id="delete"><i class="fa fa-trash"></i></button>
-                                        </td>
-                                    </tr>
-
-
-                                    @endforeach --}}
                             @foreach($data as $key=>$document)
 
 
@@ -64,7 +49,7 @@
 
                                     @if($document->file_path != null)
 
-                                    <a href="{{ route('catatanmutu.download', $document) }}" type="button" class="btn btn-circle btn-info"><i class="fas fa-download"></i></a>
+                                    <a href="{{ route('catatanmutu.download', $document) }}" type="button" class="btn btn-circle btn-info"><i class="glyphicon glyphicon-download-alt"></i></a>
                                     @else
                                         Tidak ada file
                                     @endif
@@ -73,11 +58,14 @@
                                     {{-- <a href="{{ route('catatanmutu.download', ['path' => $document->file_path ]) }}" type="button" class="btn btn-circle btn-info">Download</a> --}}
                                 </td>
 								<td>
-                                    <a href="" type="button" class="btn btn-circle btn-primary" data-toggle="modal" data-document-id='{{ $document->id }}' data-target="#uploadDoc-{{ $document->id }}"><i class="glyphicon glyphicon-open"></i></a>
+                                    <div class="d-flex justify-content-center">
+
+                                        <a href="" type="button" class="btn btn-circle btn-primary" data-toggle="modal" data-document-id='{{ $document->id }}' data-target="#uploadDoc-{{ $document->id }}"><i class="glyphicon glyphicon-open"></i></a>
+                                        <a href="{{ route('catatanmutu.delete', $document->id) }}" type="button" class="btn btn-circle btn-danger" id="delete"><i class="fa fa-trash"></i></a>
                                     {{-- <a href=# type="button" class="btn btn-dark"><i class="glyphicon glyphicon-download-alt"></i></a> --}}
-                                    <a href=# type="button" class="btn btn-circle btn-danger"><i class="fa fa-trash"></i></a>
+                                    {{-- <a href="{{ route('catatanmutu.delete', $document->id) }}" type="button" class="btn btn-circle btn-danger"><i class="fa fa-trash"></i></a> --}}
 
-
+                                    </div>
                                     {{-- <button href="#" type="button" class="btn btn-circle btn-light btn-sm mb-5"><i class="glyphicon glyphicon-download-alt"></button><button href="#" type="button" class="btn btn-circle btn-danger btn-sm mb-5"><i class="glyphicon glyphicon-trash"></button> --}}
                                 </td>
 								{{-- <td><button href="#" type="button" class="btn btn-circle btn-danger btn-sm mb-5"><i class="glyphicon glyphicon-trash"></button></td> --}}

@@ -37,7 +37,7 @@
 								<td width=25%>{{ $user->email }}</td>
 								<td width=15%>
 									<a href="{{ route('unitkerja.edit', $user->id) }}" type="button" class="btn btn-info"><i class="fa fa-edit"></i></a>
-                                    <a href="{{ route('unitkerja.delete', $user->id) }}" type="button" class="btn btn-danger" id="delete"><i class="fa fa-trash"></i></button>
+                                    <a href="{{ route('unitkerja.delete', $user->id) }}" type="button" class="btn btn-danger" id="delete"><i class="fa fa-trash"></i></a>
                             	</td>
 							</tr>
 
@@ -62,7 +62,7 @@
 		  <!-- /.row -->
 		</section>
 		<!-- /.content -->
-        
+
 
 	  </div>
   </div>

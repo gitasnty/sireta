@@ -5,6 +5,7 @@ namespace App\Http\Controllers\backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Document;
+use App\Models\User;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Validator;
 
@@ -19,9 +20,13 @@ class CatatanMutuController extends Controller
         return view ('backend.catatanmutu.view_catatanmutu', compact('data'));
 
     }
+
     public function add(){
-        return view ('backend.catatanmutu.add_catatanmutu');
+        $data=User::where('usertype', 'user')->get();
+        return view ('backend.catatanmutu.add_catatanmutu', compact('data'));
     }
+
+
     public function upload(Request $request){
 
         $validator = Validator::make($request->all(),
@@ -63,4 +68,38 @@ class CatatanMutuController extends Controller
         return response()->download($path, $filename, $header);
     }
 
+    public function delete($id){
+        $document= Document::find($id);
+        $document->delete();
+
+        $notification = array(
+            'message' => 'Document Berhasil Dihapus',
+            'alert-type ' => 'Info'
+
+        );
+
+        return redirect()->route('catatanmutu.view')->with($notification);
+    }
+
+    public function Store(Request $request)
+    {
+        $data = new Document();
+        $data -> doctype = $request->doctype;
+        $data -> name = $request->name;
+        $data -> code = $request->code;
+        $data -> user_id = $request->unitKerja;
+        $data -> standard = $request->standard;
+        $data -> period = $request->period;
+        $data -> save();
+
+        $notification=array(
+            'message' => 'Dokumen berhasil ditambahkan',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('catatanmutu.view')->with($notification);
+
+
+    }
 }
+

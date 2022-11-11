@@ -39,12 +39,6 @@ Route::middleware([
 Route::get('/admin/logout', [AdminController::class, 'Logout'])->name('admin.logout');
 
 
-//Manual Mutu
-Route::prefix('manualmutu')->group(function(){
-    Route::get('/view', [ManualMutuController::class, 'manualmutuView'])->name('manualmutu.view');
-    Route::get('/add', [ManualMutuController::class, 'manualmutuAdd'])->name('manualmutu.add');
-    Route::post('/store', [ManualMutuController::class, 'manualmutuStore'])->name('manualmutu.store');
-});
 
 //Prosedur Mutu
 Route::prefix('prosedurmutu')->group(function(){
@@ -60,6 +54,17 @@ Route::prefix('petunjukkerja')->group(function(){
     Route::post('/store', [PetunjukKerjaController::class, 'petunjukkerjaStore'])->name('petunjukkerja.store');
 });
 
+//Manual Mutu
+Route::prefix('manualmutu')->group(function(){
+    Route::get('/view', [ManualMutuController::class, 'manualmutuView'])->name('manualmutu.view');
+    Route::get('/add', [ManualMutuController::class, 'manualmutuAdd'])->name('manualmutu.add');
+    Route::post('/upload', [ManualMutuController::class, 'manualmutuUpload'])->name('manualmutu.upload');
+    Route::get('/download/{document}', [ManualMutuController::class, 'manualmutuDownload'])->name('manualmutu.download');
+    Route::get('/delete/{id}', [ManualMutuController::class, 'manualmutuDelete'])->name('manualmutu.delete');
+    Route::post('/store', [ManualMutuController::class, 'manualmutuStore'])->name('manualmutu.store');
+
+});
+
 //Catatan Mutu
 
 Route::group([
@@ -68,9 +73,10 @@ Route::group([
 ],function(){
     Route::get('/view', [CatatanMutuController::class, 'view'])->name('view');
     Route::get('/add', [CatatanMutuController::class, 'add'])->name('add');
-    Route::post('/store', [CatatanMutuController::class, 'store'])->name('store');
     Route::post('/upload', [CatatanMutuController::class, 'upload'])->name('upload');
     Route::get('/download/{document}', [CatatanMutuController::class, 'download'])->name('download');
+    Route::get('/delete/{id}', [CatatanMutuController::class, 'delete'])->name('delete');
+    Route::post('/store', [CatatanMutuController::class, 'store'])->name('store');
 });
 
 //Lain Lain
