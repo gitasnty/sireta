@@ -11,7 +11,6 @@
 		  <div class="box">
 			<div class="box-header with-border">
 			  <h4 class="box-title">Tambah Dokumen Catatan Mutu </h4>
-			  <!-- <h6 class="box-subtitle">Bootstrap Form Validation check the <a class="text-warning" href="http://reactiveraven.github.io/jqBootstrapValidation/">official website </a></h6> -->
 			</div>
 			<!-- /.box-header -->
 			<div class="box-body">
@@ -52,10 +51,7 @@
                                 <h5>Standar</h5>
                                 <div class="controls">
                                     <select name="standar" id="select" required class="form-control">
-                                        {{-- <option value="">Pilihan Standar </option> --}}
-                                        {{-- @foreach($data as $key=$document)
-                                        <option name="standard">{{ $document->Document->standard }}</option>
-                                        @endforeach --}}
+
                                         <option value="1">Standar 1</option>
                                         <option value="2">Standar 2</option>
                                         <option value="3">Standar 3</option>
@@ -73,11 +69,6 @@
 									<input type="year" name="period" class="form-control" required data-validation-required-message="This field is required"> </div>
 								{{-- <div class="form-control-feedback"><small>Add <code>required</code> attribute to field for required validation.</small></div> --}}
 							</div>
-                            {{-- <div class="form-group">
-                                <h5>Uplaod</h5>
-                                <div class="controls">
-                                    <input type="file" name="file" class="form-control" required> </div>
-                            </div> --}}
 
 						</div>
 					  </div>

@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Backend;
+namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Document;
 use App\Models\User;
-use Illuminate\Validation\Validator;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Validator;
+
 
 
 class ManualMutuController extends Controller
@@ -35,17 +36,15 @@ class ManualMutuController extends Controller
 
     public function manualmutuUpload(Request $request){
 
-        // (make) undifined
-
-        // $validator = Validator::make($request->all(),
-        // ['file_path' => 'required|mimes:pdf,doc']);
-        // if($validator->fails()){
-        //     $error = $validator->errors()->all(':message');
-        //     return redirect()->back()->with([
-        //         'message' => 'Data tidak valid, error: '.implode(' ', $error),
-        //         'alert-type' => 'info'
-        //     ]);
-        // }
+        $validator = Validator::make($request->all(),
+        ['file_path' => 'required|mimes:pdf,doc,jpg']);
+        if($validator->fails()){
+            $error = $validator->errors()->all(':message');
+            return redirect()->back()->with([
+                'message' => 'Data tidak valid, error: '.implode(' ', $error),
+                'alert-type' => 'info'
+            ]);
+        }
 
         $data = Document::find($request->id);
 

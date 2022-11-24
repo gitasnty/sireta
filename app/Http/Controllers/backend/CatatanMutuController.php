@@ -12,11 +12,8 @@ use Illuminate\Support\Facades\Validator;
 class CatatanMutuController extends Controller
 {
     public function view(){
-        // mengambil data documents_users
+
     	$data=Document::where('doctype', 'Catatan Mutu')->get();
-        // $user = Document::with('user_id')->whereRelation('documents','user_id',2)->first();
-        // $user->documents->user->name; // get user name
-        //return $documents;
         return view ('backend.catatanmutu.view_catatanmutu', compact('data'));
 
     }
@@ -30,7 +27,7 @@ class CatatanMutuController extends Controller
     public function upload(Request $request){
 
         $validator = Validator::make($request->all(),
-        ['file_path' => 'required|mimes:pdf,doc']);
+        ['file_path' => 'required|mimes:pdf,doc,jpg']);
         if($validator->fails()){
             $error = $validator->errors()->all(':message');
             return redirect()->back()->with([

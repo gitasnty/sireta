@@ -12,7 +12,6 @@
 				<div class="box-header with-border">
 				  <h3 class="box-title">Dokumen Unit Kerja</h3>
                   <a href="{{ route('unitkerja.add')}}" style="float:right" class="btn btn-rounded btn-success mb-5">Tambah Unit Kerja</a>
-				  <!-- <h6 class="box-subtitle">Export data to Copy, CSV, Excel, PDF & Print</h6> -->
 				</div>
 				<!-- /.box-header -->
 				<div class="box-body">
@@ -28,6 +27,7 @@
 							</tr>
 						</thead>
 						<tbody>
+
 							@foreach($allData as $key=>$user)
 
 							<tr>

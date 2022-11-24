@@ -13,7 +13,6 @@
 				<div class="box-header with-border">
 				  <h3 class="box-title">Dokumen Catatan Mutu</h3>
                   <a href="{{ route('catatanmutu.add')}}" style="float:right" class="btn btn-rounded btn-success mb-5">Tambah Dokumen</a>
-				  <!-- <h6 class="box-subtitle">Export data to Copy, CSV, Excel, PDF & Print</h6> -->
 				</div>
 				<!-- /.box-header -->
 				<div class="box-body">
@@ -34,55 +33,44 @@
 						<tbody>
                             @foreach($data as $key=>$document)
 
-
                             <tr>
 								<td>{{ $document->code }}</td>
 								<td>{{ $document->name }}</td>
 								<td>{{ $document->User->name}}</td>
-								{{-- <td><div><input type="file" class="btn btn-app btn-primary "></div></td> --}}
 								<td>{{ ucfirst($document->standard) }}</td>
-								{{-- <td></td> --}}
 								<td>{{ $document->period }}</td>
 								<td>
                                     <div class="d-flex justify-content-center">
-
-
-                                    @if($document->file_path != null)
-
-                                    <a href="{{ route('catatanmutu.download', $document) }}" type="button" class="btn btn-circle btn-info"><i class="glyphicon glyphicon-download-alt"></i></a>
-                                    @else
-                                        Tidak ada file
-                                    @endif
-                                </div>
-
-                                    {{-- <a href="{{ route('catatanmutu.download', ['path' => $document->file_path ]) }}" type="button" class="btn btn-circle btn-info">Download</a> --}}
+                                        @if($document->file_path != null)
+                                            <a href="{{ route('catatanmutu.download', $document) }}" type="button" class="btn btn-circle btn-info"><i class="glyphicon glyphicon-download-alt"></i></a>
+                                        @else
+                                            Tidak ada file
+                                        @endif
+                                    </div>
                                 </td>
 								<td>
                                     <div class="d-flex justify-content-center">
 
                                         <a href="" type="button" class="btn btn-circle btn-primary" data-toggle="modal" data-document-id='{{ $document->id }}' data-target="#uploadDoc-{{ $document->id }}"><i class="glyphicon glyphicon-open"></i></a>
                                         <a href="{{ route('catatanmutu.delete', $document->id) }}" type="button" class="btn btn-circle btn-danger" id="delete"><i class="fa fa-trash"></i></a>
-                                    {{-- <a href=# type="button" class="btn btn-dark"><i class="glyphicon glyphicon-download-alt"></i></a> --}}
-                                    {{-- <a href="{{ route('catatanmutu.delete', $document->id) }}" type="button" class="btn btn-circle btn-danger"><i class="fa fa-trash"></i></a> --}}
 
                                     </div>
-                                    {{-- <button href="#" type="button" class="btn btn-circle btn-light btn-sm mb-5"><i class="glyphicon glyphicon-download-alt"></button><button href="#" type="button" class="btn btn-circle btn-danger btn-sm mb-5"><i class="glyphicon glyphicon-trash"></button> --}}
+
                                 </td>
-								{{-- <td><button href="#" type="button" class="btn btn-circle btn-danger btn-sm mb-5"><i class="glyphicon glyphicon-trash"></button></td> --}}
 
 							</tr>
+
                             @endforeach
 						</tbody>
 
 					</table>
-					<div>
-
-		</div>
-					</div>
-				</div>
-				<!-- /.box-body -->
-			  </div>
-			  <!-- /.box -->
+				<div>
+		    </div>
+			</div>
+			</div>
+			<!-- /.box-body -->
+        </div>
+		<!-- /.box -->
 
 			</div>
 			<!-- /.col -->

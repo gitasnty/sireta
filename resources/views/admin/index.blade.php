@@ -6,10 +6,10 @@
 
       <!-- Main content -->
       <section class="content">
-          <div class="row">
+          {{-- <div class="row">
               <div class="col-xl-4 col-6">
                   <div class="box overflow-hidden pull-up">
-                      <div class="box-body">							
+                      <div class="box-body">
                           <div class="icon bg-primary-light rounded w-60 h-60">
                               <i class="text-primary mr-0 font-size-24 mdi mdi-account-multiple"></i>
                           </div>
@@ -26,7 +26,7 @@
               </div>
               <div class="col-xl-4 col-6">
                   <div class="box overflow-hidden pull-up">
-                      <div class="box-body">							
+                      <div class="box-body">
                           <div class="icon bg-primary-light rounded w-60 h-60">
                               <i class="text-primary mr-0 font-size-24 mdi mdi-account-multiple"></i>
                           </div>
@@ -43,7 +43,7 @@
               </div>
               <div class="col-xl-4 col-6">
                   <div class="box overflow-hidden pull-up">
-                      <div class="box-body">							
+                      <div class="box-body">
                           <div class="icon bg-primary-light rounded w-60 h-60">
                               <i class="text-primary mr-0 font-size-24 mdi mdi-account-multiple"></i>
                           </div>
@@ -81,7 +81,7 @@
                                       </tr>
                                   </thead>
                                   <tbody>
-                                      <tr>										
+                                      <tr>
                                           <td class="pl-0 py-8">
                                               <div class="d-flex align-items-center">
                                                   <div class="flex-shrink-0 mr-20">
@@ -112,7 +112,7 @@
                                               <a href="#" class="waves-effect waves-light btn btn-info btn-circle mx-5"><span class="mdi mdi-arrow-right"></span></a>
                                           </td>
                                       </tr>
-                                      <tr>										
+                                      <tr>
                                           <td class="pl-0 py-8">
                                               <div class="d-flex align-items-center">
                                                   <div class="flex-shrink-0 mr-20">
@@ -143,7 +143,7 @@
                                               <a href="#" class="waves-effect waves-light btn btn-info btn-circle mx-5"><span class="mdi mdi-arrow-right"></span></a>
                                           </td>
                                       </tr>
-                                      <tr>										
+                                      <tr>
                                           <td class="pl-0 py-8">
                                               <div class="d-flex align-items-center">
                                                   <div class="flex-shrink-0 mr-20">
@@ -179,9 +179,9 @@
                               </table>
                           </div>
                       </div>
-                  </div>  
+                  </div>
               </div>
-          </div>
+          </div> --}}
       </section>
       <!-- /.content -->
     </div>

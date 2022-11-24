@@ -41,17 +41,29 @@ Route::get('/admin/logout', [AdminController::class, 'Logout'])->name('admin.log
 
 
 //Prosedur Mutu
-Route::prefix('prosedurmutu')->group(function(){
-    Route::get('/view', [ProsedurMutuController::class, 'prosedurmutuView'])->name('prosedurmutu.view');
-    Route::get('/add', [ProsedurMutuController::class, 'prosedurmutuAdd'])->name('prosedurmutu.add');
-    Route::post('/store', [ProsedurMutuController::class, 'prosedurmutuStore'])->name('prosedurmutu.store');
+Route::group([
+    'prefix' => 'prosedurmutu',
+    'as' => 'prosedurmutu.'
+],function(){
+    Route::get('/view', [ProsedurMutuController::class, 'view'])->name('view');
+    Route::get('/add', [ProsedurMutuController::class, 'add'])->name('add');
+    Route::post('/upload', [ProsedurMutuController::class, 'upload'])->name('upload');
+    Route::get('/download/{document}', [ProsedurMutuController::class, 'download'])->name('download');
+    Route::get('/delete/{id}', [ProsedurMutuController::class, 'delete'])->name('delete');
+    Route::post('/store', [ProsedurMutuController::class, 'store'])->name('store');
 });
 
 //Petunjuk Kerja
-Route::prefix('petunjukkerja')->group(function(){
-    Route::get('/view', [PetunjukKerjaController::class, 'petunjukkerjaView'])->name('petunjukkerja.view');
-    Route::get('/add', [PetunjukKerjaController::class, 'petunjukkerjaAdd'])->name('petunjukkerja.add');
-    Route::post('/store', [PetunjukKerjaController::class, 'petunjukkerjaStore'])->name('petunjukkerja.store');
+Route::group([
+    'prefix' => 'petunjukkerja',
+    'as' => 'petunjukkerja.'
+],function(){
+    Route::get('/view', [PetunjukKerjaController::class, 'view'])->name('view');
+    Route::get('/add', [PetunjukKerjaController::class, 'add'])->name('add');
+    Route::post('/upload', [PetunjukKerjaController::class, 'upload'])->name('upload');
+    Route::get('/download/{document}', [PetunjukKerjaController::class, 'download'])->name('download');
+    Route::get('/delete/{id}', [PetunjukKerjaController::class, 'delete'])->name('delete');
+    Route::post('/store', [PetunjukKerjaController::class, 'store'])->name('store');
 });
 
 //Manual Mutu
@@ -66,7 +78,6 @@ Route::prefix('manualmutu')->group(function(){
 });
 
 //Catatan Mutu
-
 Route::group([
     'prefix' => 'catatanmutu',
     'as' => 'catatanmutu.'
