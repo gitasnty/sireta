@@ -67,14 +67,16 @@ Route::group([
 });
 
 //Manual Mutu
-Route::prefix('manualmutu')->group(function(){
-    Route::get('/view', [ManualMutuController::class, 'manualmutuView'])->name('manualmutu.view');
-    Route::get('/add', [ManualMutuController::class, 'manualmutuAdd'])->name('manualmutu.add');
-    Route::post('/upload', [ManualMutuController::class, 'manualmutuUpload'])->name('manualmutu.upload');
-    Route::get('/download/{document}', [ManualMutuController::class, 'manualmutuDownload'])->name('manualmutu.download');
-    Route::get('/delete/{id}', [ManualMutuController::class, 'manualmutuDelete'])->name('manualmutu.delete');
-    Route::post('/store', [ManualMutuController::class, 'manualmutuStore'])->name('manualmutu.store');
-
+Route::group([
+    'prefix' => 'manualmutu',
+    'as' => 'manualmutu.'
+],function(){
+    Route::get('/view', [ManualMutuController::class, 'view'])->name('view');
+    Route::get('/add', [ManualMutuController::class, 'add'])->name('add');
+    Route::post('/upload', [ManualMutuController::class, 'upload'])->name('upload');
+    Route::get('/download/{document}', [ManualMutuController::class, 'download'])->name('download');
+    Route::get('/delete/{id}', [ManualMutuController::class, 'delete'])->name('delete');
+    Route::post('/store', [ManualMutuController::class, 'store'])->name('store');
 });
 
 //Catatan Mutu

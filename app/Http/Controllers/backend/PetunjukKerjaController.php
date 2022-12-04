@@ -80,8 +80,9 @@ class PetunjukKerjaController extends Controller
 
     public function Store(Request $request)
     {
+
         $data = new Document();
-        $data -> doctype = $request->doctype;
+        $data -> doctype = "Petunjuk Kerja";
         $data -> name = $request->name;
         $data -> code = $request->code;
         $data -> user_id = $request->unitKerja;

@@ -13,15 +13,15 @@ use Illuminate\Support\Facades\Validator;
 
 class ManualMutuController extends Controller
 {
-    public function manualmutuView(){
+    public function view(){
         $data=Document::where('doctype', 'Manual Mutu')->get();
         return view ('backend.manualmutu.view_manualmutu', compact('data'));
     }
-    public function manualmutuAdd(){
+    public function add(){
         $data=User::where('usertype', 'user')->get();
         return view ('backend.manualmutu.add_manualmutu', compact('data'));
     }
-    public function manualmutuDelete($id){
+    public function delete($id){
         $document= Document::find($id);
         $document->delete();
 
@@ -34,7 +34,7 @@ class ManualMutuController extends Controller
         return redirect()->route('manualmutu.view')->with($notification);
     }
 
-    public function manualmutuUpload(Request $request){
+    public function upload(Request $request){
 
         $validator = Validator::make($request->all(),
         ['file_path' => 'required|mimes:pdf,doc,jpg']);
@@ -64,7 +64,7 @@ class ManualMutuController extends Controller
         return redirect()->route('manualmutu.view')->with($notification);
     }
 
-    public function manualmutuDownload(Document $document)
+    public function download(Document $document)
     {
         $ext = substr($document->file_path, -3);
        // dd($ext);
@@ -75,9 +75,24 @@ class ManualMutuController extends Controller
         return response()->download($path, $filename, $header);
     }
 
-    public function manualmutuStore(Request $request)
+    public function store(Request $request)
     {
-        //return redirect()->route('manualmutu.view')->with($notification);
+        $data = new Document();
+        $data -> doctype = "Manual Mutu";
+        $data -> name = $request->name;
+        $data -> code = $request->code;
+        $data -> user_id = $request->unitKerja;
+        $data -> standard = $request->standard;
+        $data -> period = $request->period;
+        $data -> save();
+
+
+        $notification=array(
+            'message' => 'Dokumen berhasil ditambahkan',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('manualmutu.view')->with($notification);
 
     }
 }

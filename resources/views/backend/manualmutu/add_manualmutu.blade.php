@@ -16,14 +16,15 @@
 			<div class="box-body">
 			  <div class="row">
 				<div class="col">
-					<form novalidate>
+					<form method="POST" action="{{ route('manualmutu.store') }}">
+                         @csrf
 					  <div class="row">
 						<div class="col-12">
 							<div class="form-group">
 								<h5>Jenis Dokumen</h5>
 								<div class="controls">
-									<input type="text" name="doctype" text="Manual Mutu" class="form-control" required data-validation-required-message="This field is required" value="Manual Mutu" disabled="true"></div>
-								{{-- <div class="form-control-feedback"><small>Add <code>required</code> attribute to field for required validation.</small></div> --}}
+									<input type="text" name="doctype" class="form-control" required data-validation-required-message="This field is required" value="Manual Mutu" disabled="true">
+                                </div>
 							</div>
 							<div class="form-group">
 								<h5>Nomor Dokumen</h5>
@@ -42,7 +43,7 @@
                                 <div class="controls">
                                     <select name="unitKerja" id="select" required class="form-control">
                                         @foreach($data as $d)
-                                        <option name="unitKerja">{{ $d->name }}</option>
+                                        <option name="unitKerja" value={{ $d->id }}>{{ $d->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -50,16 +51,17 @@
                             <div class="form-group">
                                 <h5>Standar</h5>
                                 <div class="controls">
-                                    <select name="standar" id="select" required class="form-control">
+                                    <select name="standard" id="select" required class="form-control">
 
-                                        <option value="1">Standar 1</option>
-                                        <option value="2">Standar 2</option>
-                                        <option value="3">Standar 3</option>
-                                        <option value="4">Standar 4</option>
-                                        <option value="5">Standar 5</option>
-                                        <option value="6">Standar 6</option>
-                                        <option value="7">Standar 7</option>
-                                        <option value="8">Standar 8</option>
+                                        <option value="Standar 1">Standar 1</option>
+                                        <option value="Standar 2">Standar 2</option>
+                                        <option value="Standar 3">Standar 3</option>
+                                        <option value="Standar 4">Standar 4</option>
+                                        <option value="Standar 5">Standar 5</option>
+                                        <option value="Standar 6">Standar 6</option>
+                                        <option value="Standar 7">Standar 7</option>
+                                        <option value="Standar 8">Standar 8</option>
+
                                     </select>
                                 </div>
                             </div>

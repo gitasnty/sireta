@@ -8,6 +8,7 @@ use App\Models\Document;
 use App\Models\User;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 
 class CatatanMutuController extends Controller
 {
@@ -78,16 +79,17 @@ class CatatanMutuController extends Controller
         return redirect()->route('catatanmutu.view')->with($notification);
     }
 
-    public function Store(Request $request)
+    public function store(Request $request)
     {
         $data = new Document();
-        $data -> doctype = $request->doctype;
+        $data -> doctype = "Catatan Mutu";
         $data -> name = $request->name;
         $data -> code = $request->code;
         $data -> user_id = $request->unitKerja;
         $data -> standard = $request->standard;
         $data -> period = $request->period;
         $data -> save();
+
 
         $notification=array(
             'message' => 'Dokumen berhasil ditambahkan',
@@ -96,6 +98,15 @@ class CatatanMutuController extends Controller
 
         return redirect()->route('catatanmutu.view')->with($notification);
 
+        // $data=array(
+        //     'doctype'=>"Catatan Mutu",
+        //     "name"=>$request->name,
+        //     "code"=>$request->code,
+        //     "user_id"=>$request->unitKerja,
+        //     'standard' => $request->standard,
+        //     'period' => $request->period
+        // );
+        // DB::table('documents')->insert($data);
 
     }
 }
