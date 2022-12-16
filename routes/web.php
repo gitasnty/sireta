@@ -93,10 +93,19 @@ Route::group([
 });
 
 //Lain Lain
-Route::prefix('lainlain')->group(function(){
-    Route::get('/strukturorganisasi', [lainlainController::class, 'lainlainstrukturOrganisasi'])->name('lainlain.strukturorganisasi');
-    Route::get('/sasaranmutu', [lainlainController::class, 'lainlainSasaranmutu'])->name('lainlain.sasaranmutu');
-    Route::get('/proker', [lainlainController::class, 'lainlainProker'])->name('lainlain.proker');
+Route::group([
+    'prefix' => 'lainlain',
+    'as' => 'lainlain.'
+], function(){
+    Route::get('/organisasi', [lainlainController::class, 'viewOrganisasi'])->name('viewOrganisasi');
+    Route::get('/sasaranmutu', [lainlainController::class, 'viewSasaranmutu'])->name('viewSasaranmutu');
+    Route::get('/proker', [lainlainController::class, 'viewProker'])->name('viewProker');
+    Route::get('/view', [lainlainController::class, 'view'])->name('view');
+    Route::get('/add', [lainlainController::class, 'add'])->name('add');
+    Route::post('/upload', [lainlainController::class, 'upload'])->name('upload');
+    Route::get('/download/{document}', [lainlainController::class, 'download'])->name('download');
+    Route::get('/delete/{id}', [lainlainController::class, 'delete'])->name('delete');
+    Route::post('/store', [lainlainController::class, 'store'])->name('store');
 });
 
 //Unit Kerja

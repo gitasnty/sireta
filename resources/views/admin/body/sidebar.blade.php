@@ -105,9 +105,11 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="{{ ($route == 'lainlain.strukturorganisasi')?'active':'' }}"><a href="{{ route('lainlain.strukturorganisasi')}}"><i class="ti-more "></i>Struktur Organisasi</a></li>
-            <li class="{{ ($route == 'lainlain.sasaranmutu')?'active':'' }}"><a href="{{ route('lainlain.sasaranmutu')}}"><i class="ti-more"></i>Sasaran Mutu</a></li>
-            <li class="{{ ($route == 'lainlain.proker')?'active':'' }}"><a href="{{ route('lainlain.proker')}}"><i class="ti-more"></i>Program Kerja</a></li>
+            {{-- <li class="{{ ($route == 'lainlain.viewOrganisasi')?'active':'' }}"><a href="{{ route('lainlain.viewOrganisasi')}}"><i class="ti-more "></i>Struktur Organisasi</a></li> --}}
+            {{-- <li class="{{ ($route == 'lainlain.viewSasaranmutu')?'active':'' }}"><a href="{{ route('lainlain.viewSasaranmutu')}}"><i class="ti-more"></i>Sasaran Mutu</a></li> --}}
+            {{-- <li class="{{ ($route == 'lainlain.viewProker')?'active':'' }}"><a href="{{ route('lainlain.viewProker')}}"><i class="ti-more"></i>Program Kerja</a></li> --}}
+            <li class="{{ ($route == 'lainlain.view')?'active':'' }}"><a href="{{ route('lainlain.view')}}"><i class="ti-more"></i>Dokumen Lain Lain</a></li>
+            <li class="{{ ($route == 'lainlain.add')?'active':'' }}"><a href="{{ route('lainlain.add')}}"><i class="ti-more"></i>Tambah Dokumen</a></li>
           </ul>
         </li>
 
