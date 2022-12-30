@@ -6,6 +6,7 @@
 
       <!-- Main content -->
       <section class="content">
+        <h1>{{ Auth::user()->name }}</h1>
           {{-- <div class="row">
               <div class="col-xl-4 col-6">
                   <div class="box overflow-hidden pull-up">

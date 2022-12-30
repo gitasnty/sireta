@@ -6,10 +6,10 @@
 			<a class="nav-link" href="javascript:void(0)">FAQ</a>
 		  </li> --}}
 		  <li class="nav-item">
-			<a class="nav-link" href="#">Sistem Informasi Penjamin Mutu Internal</a>
+			<a class="nav-link" href="#">Sistem Informasi Rekapitulasi Dokumen Penjaminan Mutu Internal</a>
 		  </li>
 		</ul>
     </div>
-	  &copy; 2022 
+	  &copy; 2022
       {{-- <a href="#">Psd to Html Expert</a>. All Rights Reserved. --}}
   </footer>
