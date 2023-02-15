@@ -12,8 +12,9 @@
 			  <div class="box">
 				<div class="box-header with-border">
 				  <h3 class="box-title">Dokumen Manual Mutu</h3>
-                  <a href="{{ route('manualmutu.add')}}" style="float:right" class="btn btn-rounded btn-success mb-5">Tambah Dokumen</a>
-
+                  @if(auth()->user()->usertype == "admin")
+                    <a href="{{ route('manualmutu.add')}}" style="float:right" class="btn btn-rounded btn-success mb-5">Tambah Dokumen</a>
+                  @endif
 				</div>
 				<!-- /.box-header -->
 				<div class="box-body">

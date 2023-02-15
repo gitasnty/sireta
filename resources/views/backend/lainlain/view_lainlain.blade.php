@@ -12,7 +12,9 @@
 			  <div class="box">
 				<div class="box-header with-border">
 				  <h3 class="box-title">Dokumen Lain Lain</h3>
+                    @if(auth()->user()->usertype == "admin")
                   <a href="{{ route('lainlain.add')}}" style="float:right" class="btn btn-rounded btn-success mb-5">Tambah Dokumen</a>
+                  @endif
 				</div>
 				<!-- /.box-header -->
 				<div class="box-body">

@@ -12,8 +12,10 @@
 			  <div class="box">
 				<div class="box-header with-border">
 				  <h3 class="box-title">Dokumen Prosedur Mutu</h3>
+                  @if(auth()->user()->usertype == "admin")
                   <a href="{{ route('prosedurmutu.add')}}" style="float:right" class="btn btn-rounded btn-success mb-5">Tambah Dokumen</a>
-				</div>
+                  @endif
+                </div>
 				<!-- /.box-header -->
 				<div class="box-body">
 					<div class="table-responsive">
