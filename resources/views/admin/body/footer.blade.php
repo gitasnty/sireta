@@ -10,6 +10,6 @@
 		  </li>
 		</ul>
     </div>
-	  &copy; 2022
+	  &copy; 2023
       {{-- <a href="#">Psd to Html Expert</a>. All Rights Reserved. --}}
   </footer>
