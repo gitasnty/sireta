@@ -17,6 +17,7 @@ class UnitKerjaController extends Controller
         return view ('backend.unitkerja.add_unitkerja');
     }
 
+
     public function unitkerjaStore(Request $request){
         $validatedData = $request->validate([
            'email' => 'required',
@@ -58,10 +59,34 @@ class UnitKerjaController extends Controller
         return redirect()->route('unitkerja.view')->with($notification);
     }
 
+    public function unitkerjaUpdatePass(Request $request, $id){
+
+        $data = User::find($id);
+        $data->name = $request->unitKerja;
+        $data->password = bcrypt($request->password);
+        $data->save();
+
+        $notification = array(
+            'message' => 'Password Berhasil Diubah',
+            'alert-type ' => 'Info'
+
+        );
+
+        return redirect()->route('unitkerja.view')->with($notification);
+    }
+
     public function unitkerjaEdit($id){
         $editData= User::find($id);
         return view('backend.unitkerja.edit_unitkerja', compact('editData'));
     }
+
+    public function unitkerjaEditPass($id){
+        // $editData= User::find($id);
+        $editPass = User::find($id);
+        return view('backend.unitkerja.editPass_unitkerja',compact('editPass'));
+    }
+
+
 
     public function unitkerjaDelete($id){
         $user= User::find($id);

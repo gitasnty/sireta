@@ -47,9 +47,9 @@
 						</div>
 						<div class="col-6">
                             <div class="form-group">
-								<h5>Username (email)<span class="text-danger">*</span></h5>
+								<h5>Username<span class="text-danger">*</span></h5>
 								<div class="controls">
-									<input type="email" name="email" class="form-control" required=""> </div>
+									<input type="text" name="email" class="form-control" required=""> </div>
 							</div>
 						</div>
 						<div class="col-6">

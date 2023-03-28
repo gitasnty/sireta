@@ -14,34 +14,35 @@ class LainLainController extends Controller
 {
     public function view(){
 
-        $data = DB::table('Documents')
-                ->where('doctype', 'Lain Lain')
-                ->where('doctype', 'Struktur Organisasi')
-                ->where('doctype', 'Sasaran Mutu')
-                ->where('doctype', 'Program Kerja')
-                ->get();
+        // $data = DB::table('Documents')
+        //         ->where('doctype', 'Lain Lain')
+        //         ->where('doctype', 'Struktur Organisasi')
+        //         ->where('doctype', 'Sasaran Mutu')
+        //         ->where('doctype', 'Program Kerja')
+        //         ->get();
         // $data=Document::where('doctype', 'Lain Lain')->get();
         // $data=Document::where('doctype', 'Struktur Organisasi')->get();
         // $data=Document::where('doctype', 'Sasaran Mutu')->get();
         // $data=Document::where('doctype', 'Program Kerja')->get();
+        $data=Document::where('doctype', 'Lain Lain')->get();
         return view ('backend.lainlain.view_lainlain', compact('data'));
     }
 
-    public function viewOrganisasi(){
+    // public function viewOrganisasi(){
 
-        $data=Document::where('doctype', 'Struktur Organisasi')->get();
-        return view ('backend.lainlain.view_lainlain', compact('data'));
-    }
-    public function viewSasaranmutu(){
+    //     $data=Document::where('doctype', 'Struktur Organisasi')->get();
+    //     return view ('backend.lainlain.view_lainlain', compact('data'));
+    // }
+    // public function viewSasaranmutu(){
 
-        $data=Document::where('doctype', 'Sasaran Mutu')->get();
-        return view ('backend.lainlain.sasaranmutu_lainlain', compact('data'));
-    }
-    public function viewProker(){
+    //     $data=Document::where('doctype', 'Sasaran Mutu')->get();
+    //     return view ('backend.lainlain.sasaranmutu_lainlain', compact('data'));
+    // }
+    // public function viewProker(){
 
-        $data=Document::where('doctype', 'Program Kerja')->get();
-        return view ('backend.lainlain.proker_lainlain', compact('data'));
-    }
+    //     $data=Document::where('doctype', 'Program Kerja')->get();
+    //     return view ('backend.lainlain.proker_lainlain', compact('data'));
+    // }
     public function add(){
 
         $data=User::where('usertype', 'user')->get();
@@ -104,8 +105,9 @@ class LainLainController extends Controller
 
     public function store(Request $request)
     {
+        // dd($request);
         $data = new Document();
-        $data -> doctype = $request->doctype;
+        $data -> doctype = "Lain Lain";
         $data -> name = $request->name;
         $data -> code = $request->code;
         $data -> user_id = $request->unitKerja;
@@ -132,4 +134,5 @@ class LainLainController extends Controller
         // DB::table('documents')->insert($data);
 
     }
+
 }

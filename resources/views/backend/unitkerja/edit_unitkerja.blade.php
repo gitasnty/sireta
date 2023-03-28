@@ -48,23 +48,29 @@
 						</div>
 						<div class="col-6">
                             <div class="form-group">
-								<h5>Username (email)<span class="text-danger">*</span></h5>
+								<h5>Username<span class="text-danger">*</span></h5>
 								<div class="controls">
-									<input type="email" name="email" class="form-control" value="{{ $editData->email }}"> </div>
+									<input type="text" name="email" class="form-control" value="{{ $editData->email }}"> </div>
 							</div>
 						</div>
-						{{-- <div class="col-6">
+						{{-- <div class="col-12">
                             <div class="form-group">
-								<h5>Password<span class="text-danger">*</span></h5>
+								<h5>New Password<span class="text-danger"></span></h5>
 								<div class="controls">
-									<input type="password" name="password" class="form-control" value="{{ $editData->password }}"> </div>
+									<input type="password" name="password" class="form-control" value="" placeholder="tidak perlu diisi bila tidak ingin mengubah password"> </div>
 							</div>
 						</div> --}}
-					  </div>
+                    </div>
+                        <div>
+
+                            <a href="{{ route('unitkerja.editPass', $editData->id) }}" style="float:right" class="text-info">Ganti Password</a>
+                            
+                        </div>
 						<div class="text-xs-right">
-							<input type="submit" class="btn btn-rounded btn-info" value="Update"></input>
+							<input type="submit" class="btn btn-rounded btn-info" value="Update">
 						</div>
 					</form>
+
 
 				</div>
 				<!-- /.col -->

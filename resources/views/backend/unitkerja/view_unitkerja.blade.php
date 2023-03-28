@@ -22,7 +22,7 @@
 								<th>No</th>
 								<th>Nama Unit Kerja</th>
 								<th>Penanggung Jawab</th>
-								<th>Email</th>
+								<th>Username</th>
 								<th>Action</th>
 							</tr>
 						</thead>
@@ -36,6 +36,7 @@
 								<td width=25%>{{ $user->pj }}</td>
 								<td width=25%>{{ $user->email }}</td>
 								<td width=15%>
+									{{-- <a href="{{ route('unitkerja.password', $user->id) }}" type="button" class="btn btn-info"><i class="fa fa-edit"></i></a> --}}
 									<a href="{{ route('unitkerja.edit', $user->id) }}" type="button" class="btn btn-info"><i class="fa fa-edit"></i></a>
                                     <a href="{{ route('unitkerja.delete', $user->id) }}" type="button" class="btn btn-danger" id="delete"><i class="fa fa-trash"></i></a>
                             	</td>

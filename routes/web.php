@@ -9,6 +9,10 @@ use App\Http\Controllers\backend\PetunjukKerjaController;
 use App\Http\Controllers\backend\LainLainController;
 use App\Http\Controllers\backend\UnitKerjaController;
 use App\Http\Controllers\backend\ProfileController;
+use App\Http\Controllers\DashboardController;
+use App\Models\Document;
+use App\Models\User;
+// use League\CommonMark\Node\Block\Document;
 
 
 /*
@@ -32,9 +36,21 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('admin.index');
+        $data=Document::all();
+        return view('admin.index', compact('data'));
     })->name('dashboard');
+    // Route::get('/view', [DashboardController::class, 'view'])->name('dashboard');
 });
+
+Route::group([
+    'prefix' => 'dashboard',
+    'as' => 'dashboard.'
+],function(){
+    Route::post('/upload', [DashboardController::class, 'upload'])->name('upload');
+    Route::get('/download/{document}', [DashboardController::class, 'download'])->name('download');
+    Route::get('/delete/{id}', [DashboardController::class, 'delete'])->name('delete');
+});
+
 
 Route::get('/admin/logout', [AdminController::class, 'Logout'])->name('admin.logout');
 
@@ -97,9 +113,9 @@ Route::group([
     'prefix' => 'lainlain',
     'as' => 'lainlain.'
 ], function(){
-    Route::get('/organisasi', [lainlainController::class, 'viewOrganisasi'])->name('viewOrganisasi');
-    Route::get('/sasaranmutu', [lainlainController::class, 'viewSasaranmutu'])->name('viewSasaranmutu');
-    Route::get('/proker', [lainlainController::class, 'viewProker'])->name('viewProker');
+    // Route::get('/organisasi', [lainlainController::class, 'viewOrganisasi'])->name('viewOrganisasi');
+    // Route::get('/sasaranmutu', [lainlainController::class, 'viewSasaranmutu'])->name('viewSasaranmutu');
+    // Route::get('/proker', [lainlainController::class, 'viewProker'])->name('viewProker');
     Route::get('/view', [lainlainController::class, 'view'])->name('view');
     Route::get('/add', [lainlainController::class, 'add'])->name('add');
     Route::post('/upload', [lainlainController::class, 'upload'])->name('upload');
@@ -114,7 +130,9 @@ Route::prefix('unitkerja')->group(function(){
     Route::get('/add', [UnitKerjaController::class, 'unitkerjaAdd'])->name('unitkerja.add');
     Route::post('/store', [UnitKerjaController::class, 'unitkerjaStore'])->name('unitkerja.store');
     Route::get('/edit/{id}', [UnitKerjaController::class, 'unitkerjaEdit'])->name('unitkerja.edit');
+    Route::get('/editPass/{id}', [UnitKerjaController::class, 'unitkerjaEditPass'])->name('unitkerja.editPass');
     Route::post('/update/{id}', [UnitKerjaController::class, 'unitkerjaUpdate'])->name('unitkerja.update');
+    Route::post('/updatePass/{id}', [UnitKerjaController::class, 'unitkerjaUpdatePass'])->name('unitkerja.updatePass');
     Route::get('/delete/{id}', [UnitKerjaController::class, 'unitkerjaDelete'])->name('unitkerja.delete');
 });
 
