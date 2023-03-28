@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="{{ asset('backend/images/favicon.ico')}}">
 
-    <title>Sistem Penjaminan Mutu Internal</title>
+    <title>Sistem Informasi Penjaminan Mutu Internal</title>
 
 	<!-- Vendors Style-->
 	<link rel="stylesheet" href="{{ asset('backend/css/vendors_css.css')}}">
@@ -22,7 +22,7 @@
 
   </head>
 
-<body class="hold-transition dark-skin sidebar-mini theme-primary fixed">
+<body class="hold-transition light-skin sidebar-mini theme-primary fixed">
 
 <div class="wrapper">
 

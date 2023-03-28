@@ -13,9 +13,9 @@
 			<div class="ulogo">
 				 <a href="{{ route('dashboard') }}">
 				  <!-- logo for regular state and mobile devices -->
-					 <div class="d-flex align-items-center justify-content-center">
-						  <img src="{{asset('backend/images/logo-dark.png')}}" alt="">
-						  <h3><b>Sireta</b></h3>
+					 <div class="d-flex align-items-center rounded justify-content-center">
+						  <img src="{{asset('backend/images/logo_smk2.png')}}" alt="" style="width: 40px">
+						  <h3><b>Simuin</b></h3>
 					 </div>
 				</a>
 			</div>
@@ -51,7 +51,7 @@
             <li class="{{ ($route == 'manualmutu.view')?'active':'' }}">
                 <a href="{{ route('manualmutu.view')}}">
                 <i class="fa fa-cube"></i>
-                <span>Dokumen Manual Mutu</span>
+                <span>Manual Mutu</span>
                 </a>
             </li>
         @endif

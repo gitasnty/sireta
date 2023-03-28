@@ -103,13 +103,17 @@
 		  </li> --}}
 
 	      <!-- User Account-->
+
+          <li class="btn-group nav-item">
+            <h3 style="margin-top:20px;color:#fff">{{ Auth::user()->name }}</h3>
+          </li>
           <li class="dropdown user user-menu">
 			<a href="#" class="waves-effect waves-light rounded dropdown-toggle p-0" data-toggle="dropdown" title="User">
                 @if(auth()->user()->usertype == "admin")
-                    <img src="{{asset('backend/images/avatar/avatar-1.png')}}" alt="{{ Auth::user()->name }}">
+                    <img src="{{asset('backend/images/avatar/avatar-22.png')}}" alt="{{ Auth::user()->name }}">
                 @endif
                 @if(auth()->user()->usertype == "user")
-                    <img src="{{asset('backend/images/avatar/avatar-12.png')}}" alt="{{ Auth::user()->name }}">
+                    <img src="{{asset('backend/images/avatar/avatar-29.png')}}" alt="{{ Auth::user()->name }}">
                 @endif
 				{{-- <img src="{{ Auth::user()->profile_photo_path }}" alt="{{ Auth::user()->name }}"> --}}
 			</a>
