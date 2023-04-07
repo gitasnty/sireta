@@ -18,7 +18,8 @@ class ProsedurMutuController extends Controller
     }
 
     public function add(){
-        $data=User::where('usertype', 'user')->get();
+        $data=User::all();
+        // $data=User::where('usertype', 'user')->get();
         return view ('backend.prosedurmutu.add_prosedurmutu', compact('data'));
     }
 

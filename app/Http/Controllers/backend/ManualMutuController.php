@@ -18,7 +18,8 @@ class ManualMutuController extends Controller
         return view ('backend.manualmutu.view_manualmutu', compact('data'));
     }
     public function add(){
-        $data=User::where('usertype', 'user')->get();
+        $data=User::all();
+        // $data=User::where('usertype', 'user')->get();
         return view ('backend.manualmutu.add_manualmutu', compact('data'));
     }
     public function delete($id){
@@ -67,7 +68,7 @@ class ManualMutuController extends Controller
     public function download(Document $document)
     {
         $ext = substr($document->file_path, -3);
-       // dd($ext);
+        // dd($ext);
         $path = storage_path().DIRECTORY_SEPARATOR.'app'.DIRECTORY_SEPARATOR.$document->file_path;
 
         $header = ['Content-Type: application/'.$ext];

@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\backend\ManualMutuController;
@@ -12,6 +11,9 @@ use App\Http\Controllers\backend\ProfileController;
 use App\Http\Controllers\DashboardController;
 use App\Models\Document;
 use App\Models\User;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 // use League\CommonMark\Node\Block\Document;
 
 
@@ -26,9 +28,29 @@ use App\Models\User;
 |
 */
 
+Route::get('/guest', function () {
+    $data=Document::all();
+    return view('welcome', compact('data'));
+})->name('guest');
+// Route::get('/login', function () {
+//     return view('auth.login');
+// })->name('login');
+
 Route::get('/', function () {
     return view('auth.login');
 });
+
+// Route::get('/preview/{document}', function(Document $document){
+
+//         $file_path = $document->file_path;
+//         $fileContents = Storage::get($file_path);
+
+//         return response($fileContents, 200, [
+//             'Content-Type' => Storage::mimeType($file_path),
+//             'Content-Disposition' => 'inline; filename="'.basename($file_path).'"'
+//         ]);
+// })->name('preview');
+Route::get('/preview/{document}', [DashboardController::class, 'preview'])->name('preview');
 
 Route::middleware([
     'auth:sanctum',
@@ -37,6 +59,7 @@ Route::middleware([
 ])->group(function () {
     Route::get('/dashboard', function () {
         $data=Document::all();
+        // $guest=Document::where('doctype', 'Manual Mutu');
         return view('admin.index', compact('data'));
     })->name('dashboard');
     // Route::get('/view', [DashboardController::class, 'view'])->name('dashboard');

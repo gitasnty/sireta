@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class DashboardController extends Controller
 {
@@ -72,6 +73,18 @@ class DashboardController extends Controller
         );
 
         return redirect()->route('dashboard')->with($notification);
+    }
+
+    public function preview(Document $document){
+        $file_path = $document->file_path;
+        $fileContents = Storage::get($file_path);
+        // dd($file_path);
+        return response($fileContents, 200, [
+            'Content-Type' => Storage::mimeType($file_path),
+            'Content-Disposition' => 'inline; filename="'.basename($file_path).'"'
+        ]);
+        // return view('preview', compact('file_path'));
+
     }
 
 

@@ -19,20 +19,30 @@
 				<!-- /.box-header -->
 				<div class="box-body">
 					<div class="table-responsive">
-					  <table id="example" class="table table-bordered table-hover display nowrap margin-top-10 w-p100">
-						<thead>
+                        @if(auth()->user()->usertype == "admin")
+                        <table id="example" class="table table-bordered table-hover display nowrap margin-top-10 w-p100">
+                          @endif
+                          @if(auth()->user()->usertype == "user")
+                        <table id="example" class="table table-bordered table-hover display nowrap margin-top-10 w-p100">
+                          @endif
+                          @if(auth()->user()->usertype == "guest")
+                              <table id="example1" class="table table-bordered table-hover display nowrap margin-top-10 w-p100">
+                          @endif
+						<thead style="text-align: center">
 							<tr>
-								<th>Nomor Dokumen</th>
+								<th>Nomor</th>
 								<th>Nama Dokumen</th>
 								<th>Unit Kerja</th>
 								<th>Standar</th>
 								<th>Periode</th>
 								<th>File</th>
+                                @if(auth()->user()->usertype == "admin")
 								<th>Action</th>
+                                @endif
 
 							</tr>
 						</thead>
-						<tbody>
+						<tbody style="text-align: center">
                             @foreach($data as $key=>$document)
 
                             <tr>
@@ -50,6 +60,7 @@
                                         @endif
                                     </div>
                                 </td>
+                                @if(auth()->user()->usertype == "admin")
 								<td>
                                     <div class="d-flex justify-content-center">
 
@@ -59,6 +70,7 @@
                                     </div>
 
                                 </td>
+                                @endif
 
 							</tr>
 

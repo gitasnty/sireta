@@ -115,6 +115,9 @@
                 @if(auth()->user()->usertype == "user")
                     <img src="{{asset('backend/images/avatar/avatar-29.png')}}" alt="{{ Auth::user()->name }}">
                 @endif
+                @if(auth()->user()->usertype == "guest")
+                    <img src="{{asset('backend/images/avatar/avatar-20.png')}}" alt="{{ Auth::user()->name }}">
+                @endif
 				{{-- <img src="{{ Auth::user()->profile_photo_path }}" alt="{{ Auth::user()->name }}"> --}}
 			</a>
 			<ul class="dropdown-menu animated flipInX">

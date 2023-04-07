@@ -23,9 +23,9 @@
 				<div class="box-body">
 					<div class="table-responsive">
 					  <table id="example" class="table table-bordered table-hover display nowrap margin-top-10 w-p100">
-						<thead>
+						<thead style="text-align: center">
 							<tr>
-								<th>Nomor Dokumen</th>
+								<th>Nomor</th>
 								<th>Nama Dokumen</th>
 								<th>Unit Kerja</th>
 								<th>Standar</th>
@@ -33,9 +33,10 @@
 								<th>File</th>
 								<th>Action</th>
 
+
 							</tr>
 						</thead>
-						<tbody>
+						<tbody style="text-align: center">
                             @foreach($data as $key=>$document)
 
                             <tr>
@@ -53,15 +54,18 @@
                                         @endif
                                     </div>
                                 </td>
+
 								<td>
                                     <div class="d-flex justify-content-center">
 
                                         <a href="" type="button" class="btn btn-circle btn-primary" data-toggle="modal" data-document-id='{{ $document->id }}' data-target="#uploadDoc-{{ $document->id }}"><i class="glyphicon glyphicon-open"></i></a>
+                                        @if(auth()->user()->usertype == "admin")
                                         <a href="{{ route('catatanmutu.delete', $document->id) }}" type="button" class="btn btn-circle btn-danger" id="delete"><i class="fa fa-trash"></i></a>
-
+                                        @endif
                                     </div>
 
                                 </td>
+
 
 							</tr>
 

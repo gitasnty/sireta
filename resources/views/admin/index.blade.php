@@ -1,29 +1,175 @@
 @extends('admin.admin_master')
 @section('admin')
 
-  <div class="content-wrapper">
+@if(auth()->user()->usertype == "admin")
+<div class="content-wrapper">
+    <div class="container-full">
+
+      <section class="content">
+        <div class="row">
+			<div class="col-12">
+			  <div class="box">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Dokumen Penjaminan Mutu Internal</h3>
+                </div>
+                <div class="box-body">
+                    <div class="table-responsive">
+                    <table id="example" class="table table-bordered table-hover display nowrap margin-top-10 w-p100">
+                        <thead style="text-align: center">
+                            <tr>
+                                <th >Nomor</th>
+                                <th >Nama Dokumen</th>
+                                <th>Unit Kerja</th>
+                                <th>Standar</th>
+                                <th>Periode</th>
+                                <th>File</th>
+                                @if(auth()->user()->usertype == "admin")
+                                <th>Action</th>
+                                @endif
+
+                            </tr>
+                        </thead>
+                        <tbody style="text-align: center">
+                            @foreach($data as $key=>$document)
+                            <tr>
+                                <td>{{ $document->code }}</td>
+                                <td>{{ $document->name }}</td>
+                                <td>{{ $document->User->name}}</td>
+                                <td>{{ ucfirst($document->standard) }}</td>
+                                <td>{{ $document->period }}</td>
+                                <td>
+                                    <div class="d-flex justify-content-center">
+                                        @if($document->file_path != null)
+                                            <a href="{{ route('dashboard.download', $document) }}" type="button" class="btn btn-circle btn-info"><i class="glyphicon glyphicon-download-alt"></i></a>
+                                        @else
+                                            Tidak ada file
+                                        @endif
+                                    </div>
+                                </td>
+                                @if(auth()->user()->usertype == "admin")
+                                <td>
+                                    <div class="d-flex justify-content-center">
+
+                                        <a href="" type="button" class="btn btn-circle btn-primary" data-toggle="modal" data-document-id='{{ $document->id }}' data-target="#uploadDoc-{{ $document->id }}"><i class="glyphicon glyphicon-open"></i></a>
+                                        <a href="{{ route('dashboard.delete', $document->id) }}" type="button" class="btn btn-circle btn-danger" id="delete"><i class="fa fa-trash"></i></a>
+                                    </div>
+
+                                </td>
+                                @endif
+
+                            </tr>
+
+                            @endforeach
+                        </tbody>
+
+                    </table>
+                <div>
+              </div>
+            </div>
+        </div>
+
+      </section>
+      <!-- /.content -->
+    </div>
+</div>
+@endif
+@if(auth()->user()->usertype == "user")
+<div class="content-wrapper">
     <div class="container-full">
 
       <!-- Main content -->
       <section class="content">
-        {{-- <h1>{{ Auth::user()->name }}</h1> --}}
+        <div class="row">
+			<div class="col-12">
+			  <div class="box">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Dokumen Penjaminan Mutu Internal</h3>
+                </div>
+                <div class="box-body">
+                    <div class="table-responsive">
+                    <table id="example" class="table table-bordered table-hover display nowrap margin-top-10 w-p100">
+                        <thead style="text-align: center">
+                            <tr>
+                                <th >Nomor</th>
+                                <th >Nama Dokumen</th>
+                                <th>Unit Kerja</th>
+                                <th>Standar</th>
+                                <th>Periode</th>
+                                <th>File</th>
+                                @if(auth()->user()->usertype == "admin")
+                                <th>Action</th>
+                                @endif
+
+                            </tr>
+                        </thead>
+                        <tbody style="text-align: center">
+                            @foreach($data as $key=>$document)
+                            <tr>
+                                <td>{{ $document->code }}</td>
+                                <td>{{ $document->name }}</td>
+                                <td>{{ $document->User->name}}</td>
+                                <td>{{ ucfirst($document->standard) }}</td>
+                                <td>{{ $document->period }}</td>
+                                <td>
+                                    <div class="d-flex justify-content-center">
+                                        @if($document->file_path != null)
+                                            <a href="{{ route('dashboard.download', $document) }}" type="button" class="btn btn-circle btn-info"><i class="glyphicon glyphicon-download-alt"></i></a>
+                                        @else
+                                            Tidak ada file
+                                        @endif
+                                    </div>
+                                </td>
+                                @if(auth()->user()->usertype == "admin")
+                                <td>
+                                    <div class="d-flex justify-content-center">
+
+                                        <a href="" type="button" class="btn btn-circle btn-primary" data-toggle="modal" data-document-id='{{ $document->id }}' data-target="#uploadDoc-{{ $document->id }}"><i class="glyphicon glyphicon-open"></i></a>
+                                        <a href="{{ route('dashboard.delete', $document->id) }}" type="button" class="btn btn-circle btn-danger" id="delete"><i class="fa fa-trash"></i></a>
+                                    </div>
+
+                                </td>
+                                @endif
+
+                            </tr>
+
+                            @endforeach
+                        </tbody>
+
+                    </table>
+                <div>
+              <div>
+            </div>
+        </div>
+      </section>
+      <!-- /.content -->
+    </div>
+</div>
+@endif
+@if(auth()->user()->usertype == "guest")
+{{-- <div class="content-wrapper">
+    <div class="container-full">
+
+      <section class="content">
+
+        <div class="box-header with-border">
+            <h3 class="box-title">Dokumen Penjaminan Mutu Internal</h3>
+        </div>
         <div class="box-body">
             <div class="table-responsive">
               <table id="example" class="table table-bordered table-hover display nowrap margin-top-10 w-p100">
-                <thead>
+                <thead style="text-align: center">
                     <tr>
-                        <th>Nomor Dokumen</th>
-                        <th>Nama Dokumen</th>
+                        <th >Nomor</th>
+                        <th >Nama Dokumen</th>
                         <th>Unit Kerja</th>
                         <th>Standar</th>
                         <th>Periode</th>
                         <th>File</th>
-                        <th>Delete</th>
 
                     </tr>
                 </thead>
-                <tbody>
-                    @foreach($data as $key=>$document)
+                <tbody style="text-align: center">
+                    @foreach($guest as $key=>$document)
                     <tr>
                         <td>{{ $document->code }}</td>
                         <td>{{ $document->name }}</td>
@@ -39,15 +185,7 @@
                                 @endif
                             </div>
                         </td>
-                        <td>
-                            <div class="d-flex justify-content-center">
 
-                                <a href="" type="button" class="btn btn-circle btn-primary" data-toggle="modal" data-document-id='{{ $document->id }}' data-target="#uploadDoc-{{ $document->id }}"><i class="glyphicon glyphicon-open"></i></a>
-                                <a href="{{ route('dashboard.delete', $document->id) }}" type="button" class="btn btn-circle btn-danger" id="delete"><i class="fa fa-trash"></i></a>
-
-                            </div>
-
-                        </td>
 
                     </tr>
 
@@ -56,186 +194,24 @@
 
             </table>
         <div>
-          {{-- <div class="row">
-              <div class="col-xl-4 col-6">
-                  <div class="box overflow-hidden pull-up">
-                      <div class="box-body">
-                          <div class="icon bg-primary-light rounded w-60 h-60">
-                              <i class="text-primary mr-0 font-size-24 mdi mdi-account-multiple"></i>
-                          </div>
-                          <div>
-                              <h3 class="text-mute">Standar A</h3>
-                          </div>
-                          <div class="progress">
-                            <div class="progress-bar progress-bar-primary progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                              <span class="sr-only">60% Complete</span>
-                            </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-xl-4 col-6">
-                  <div class="box overflow-hidden pull-up">
-                      <div class="box-body">
-                          <div class="icon bg-primary-light rounded w-60 h-60">
-                              <i class="text-primary mr-0 font-size-24 mdi mdi-account-multiple"></i>
-                          </div>
-                          <div>
-                              <h3 class="text-mute">Standar B</h3>
-                          </div>
-                          <div class="progress">
-                            <div class="progress-bar progress-bar-danger progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 30%">
-                              <span class="sr-only">30% Complete</span>
-                            </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-xl-4 col-6">
-                  <div class="box overflow-hidden pull-up">
-                      <div class="box-body">
-                          <div class="icon bg-primary-light rounded w-60 h-60">
-                              <i class="text-primary mr-0 font-size-24 mdi mdi-account-multiple"></i>
-                          </div>
-                          <div>
-                              <h3 class="text-mute">Standar C</h3>
-                          </div>
-                          <div class="progress">
-                            <div class="progress-bar progress-bar-success progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
-                              <span class="sr-only">90% Complete</span>
-                            </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
 
-
-              <div class="col-12">
-                  <div class="box">
-                      <div class="box-header">
-                          <h4 class="box-title align-items-start flex-column">
-                              Files Uploaded
-                              <small class="subtitle">Latest document uploaded</small>
-                          </h4>
-                      </div>
-                      <div class="box-body">
-                          <div class="table-responsive">
-                              <table class="table no-border">
-                                  <thead>
-                                      <tr class="text-uppercase bg-lightest">
-                                          <th style="min-width: 300px"><span class="text-white">Instrumen</span></th>
-                                          <th style="min-width: 150px"><span class="text-fade">Standar</span></th>
-                                          <th style="min-width: 150px"><span class="text-fade">Unit Kerja</span></th>
-                                          <th style="min-width: 130px"><span class="text-fade">status</span></th>
-                                          <th style="min-width: 120px"></th>
-                                      </tr>
-                                  </thead>
-                                  <tbody>
-                                      <tr>
-                                          <td class="pl-0 py-8">
-                                              <div class="d-flex align-items-center">
-                                                  <div class="flex-shrink-0 mr-20">
-                                                      <div class="bg-img h-50 w-50" style="background-image: url({{ asset('backend/images/gallery/creative/img-5.jpg')}})"></div>
-                                                  </div>
-
-                                                  <div>
-                                                      <a href="#" class="text-white font-weight-600 hover-primary mb-1 font-size-16">Prestasi</a>
-                                                      <span class="text-fade d-block">Bidang Akademis</span>
-                                                  </div>
-                                              </div>
-                                          </td>
-                                          <td>
-                                              <span class="text-white font-weight-600 d-block font-size-16">
-                                                  Standar A
-                                              </span>
-                                          </td>
-                                          <td>
-                                              <span class="text-white font-weight-600 d-block font-size-16">
-                                                  Unit Kerja A
-                                              </span>
-                                          </td>
-                                          <td>
-                                              <span class="badge badge-success-light badge-lg">Success</span>
-                                          </td>
-                                          <td class="text-right">
-                                              <a href="#" class="waves-effect waves-light btn btn-info btn-circle mx-5"><span class="mdi mdi-bookmark-plus"></span></a>
-                                              <a href="#" class="waves-effect waves-light btn btn-info btn-circle mx-5"><span class="mdi mdi-arrow-right"></span></a>
-                                          </td>
-                                      </tr>
-                                      <tr>
-                                          <td class="pl-0 py-8">
-                                              <div class="d-flex align-items-center">
-                                                  <div class="flex-shrink-0 mr-20">
-                                                      <div class="bg-img h-50 w-50" style="background-image: url({{ asset('backend/images/gallery/creative/img-1.jpg')}})"></div>
-                                                  </div>
-
-                                                  <div>
-                                                      <a href="#" class="text-white font-weight-600 hover-primary mb-1 font-size-16">Prestasi</a>
-                                                      <span class="text-fade d-block">Bidang Akademis</span>
-                                                  </div>
-                                              </div>
-                                          </td>
-                                          <td>
-                                              <span class="text-white font-weight-600 d-block font-size-16">
-                                                  Standar A
-                                              </span>
-                                          </td>
-                                          <td>
-                                              <span class="text-white font-weight-600 d-block font-size-16">
-                                                  Unit Kerja A
-                                              </span>
-                                          </td>
-                                          <td>
-                                              <span class="badge badge-primary-light badge-lg">Approved</span>
-                                          </td>
-                                          <td class="text-right">
-                                              <a href="#" class="waves-effect waves-light btn btn-info btn-circle mx-5"><span class="mdi mdi-bookmark-plus"></span></a>
-                                              <a href="#" class="waves-effect waves-light btn btn-info btn-circle mx-5"><span class="mdi mdi-arrow-right"></span></a>
-                                          </td>
-                                      </tr>
-                                      <tr>
-                                          <td class="pl-0 py-8">
-                                              <div class="d-flex align-items-center">
-                                                  <div class="flex-shrink-0 mr-20">
-                                                      <div class="bg-img h-50 w-50" style="background-image: url({{ asset('backend/images/gallery/creative/img-3.jpg')}})"></div>
-                                                  </div>
-
-                                                  <div>
-                                                      <a href="#" class="text-white font-weight-600 hover-primary mb-1 font-size-16">Prestasi</a>
-                                                      <span class="text-fade d-block">Bidang Akademis</span>
-                                                  </div>
-                                              </div>
-                                          </td>
-                                          <td>
-                                              <span class="text-white font-weight-600 d-block font-size-16">
-                                                  Standar A
-                                              </span>
-                                          </td>
-                                          <td>
-                                              <span class="text-white font-weight-600 d-block font-size-16">
-                                                  Unit Kerja A
-                                              </span>
-                                          </td>
-                                          <td>
-                                              <span class="badge badge-warning-light badge-lg">In Progress</span>
-                                          </td>
-                                          <td class="text-right">
-                                              <a href="#" class="waves-effect waves-light btn btn-info btn-circle mx-5"><span class="mdi mdi-bookmark-plus"></span></a>
-                                              <a href="#" class="waves-effect waves-light btn btn-info btn-circle mx-5"><span class="mdi mdi-arrow-right"></span></a>
-                                          </td>
-                                      </tr>
-
-                                  </tbody>
-                              </table>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div> --}}
       </section>
       <!-- /.content -->
     </div>
+</div> --}}
+<div class="content-wrapper">
+    <div class="container-full">
+
+      <section class="content">
+
+        <div class="box-header with-border">
+            <h3 class="box-title">Selamat Datang di Sistem Penjaminan Mutu Internal</h3>
+            <h4>SMK Negeri 2 Magelang</h4>
+        </div>
+      </section>
+    </div>
 </div>
+@endif
 
    <!-- Modal -->
    @foreach( $data as $d)

@@ -19,7 +19,8 @@ class PetunjukKerjaController extends Controller
     }
 
     public function add(){
-        $data=User::where('usertype', 'user')->get();
+        $data=User::all();
+        // $data=User::where('usertype', 'user')->get();
         return view ('backend.petunjukkerja.add_petunjukkerja', compact('data'));
     }
 

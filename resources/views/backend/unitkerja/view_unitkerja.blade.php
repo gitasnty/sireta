@@ -17,16 +17,16 @@
 				<div class="box-body">
 					<div class="table-responsive">
 					  <table id="example" class="table table-bordered table-hover display nowrap margin-top-10 w-p100">
-						<thead>
+						<thead style="text-align: center">
 							<tr>
-								<th>No</th>
+								<th>Nomor</th>
 								<th>Nama Unit Kerja</th>
 								<th>Penanggung Jawab</th>
 								<th>Username</th>
 								<th>Action</th>
 							</tr>
 						</thead>
-						<tbody>
+						<tbody style="text-align: center">
 
 							@foreach($allData as $key=>$user)
 

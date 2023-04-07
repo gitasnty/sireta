@@ -20,7 +20,8 @@ class CatatanMutuController extends Controller
     }
 
     public function add(){
-        $data=User::where('usertype', 'user')->get();
+        $data=User::all();
+        // $data=User::where('usertype', 'user')->get();
         return view ('backend.catatanmutu.add_catatanmutu', compact('data'));
     }
 
@@ -58,7 +59,7 @@ class CatatanMutuController extends Controller
     public function download(Document $document)
     {
         $ext = substr($document->file_path, -3);
-       // dd($ext);
+        // dd($ext);
         $path = storage_path().DIRECTORY_SEPARATOR.'app'.DIRECTORY_SEPARATOR.$document->file_path;
 
         $header = ['Content-Type: application/'.$ext];

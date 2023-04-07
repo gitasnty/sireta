@@ -20,8 +20,12 @@
 </head>
 <body class="hold-transition theme-primary bg-gradient-primary">
 
-	<div class="container h-p100">
-		<div class="row align-items-center justify-content-md-center h-p100">
+
+    {{-- <div>
+        <a href="{{ route('home') }}" class="btn btn-app btn-primary"><i class="glyphicon glyphicon-home"></i>Home</a>
+    </div> --}}
+    <div class="container h-p100">
+        <div class="row align-items-center justify-content-md-center h-p100">
 
 			<div class="col-12">
 				<div class="row justify-content-center no-gutters">
@@ -65,7 +69,12 @@
 									  </div>
 									</div> --}}
 									<!-- /.col -->
-									<div class="col-12 text-center">
+                                    {{-- <div class="col-12">
+                                        <div class="fog-pwd text-right">
+                                            <a href="{{ route('guest') }}" class="text-white hover-info">Guest</a>
+                                        </div>
+                                    </div> --}}
+                                    <div class="col-12 text-center">
 									  <button type="submit" class="btn btn-info btn-rounded mt-10">SIGN IN</button>
 									</div>
 									<!-- /.col -->

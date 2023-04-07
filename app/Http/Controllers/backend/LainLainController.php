@@ -45,7 +45,8 @@ class LainLainController extends Controller
     // }
     public function add(){
 
-        $data=User::where('usertype', 'user')->get();
+        $data=User::all();
+        // $data=User::where('usertype', 'user')->get();
         return view ('backend.lainlain.add_lainlain', compact('data'));
     }
 

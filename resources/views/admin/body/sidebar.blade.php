@@ -23,14 +23,22 @@
 
       <!-- sidebar menu-->
       <ul class="sidebar-menu" data-widget="tree">
-
+        @if(auth()->user()->usertype == "user")
 		<li class="{{ ($route == 'dashboard')?'active':'' }}">
           <a href="{{ route('dashboard')}}">
             <i data-feather="pie-chart"></i>
 			<span>Dashboard</span>
           </a>
         </li>
-
+        @endif
+        @if(auth()->user()->usertype == "admin")
+		<li class="{{ ($route == 'dashboard')?'active':'' }}">
+          <a href="{{ route('dashboard')}}">
+            <i data-feather="pie-chart"></i>
+			<span>Dashboard</span>
+          </a>
+        </li>
+        @endif
         @if(auth()->user()->usertype == "admin")
         <li class="treeview {{ ($prefix == '/unitkerja')?'active':'' }}">
             <a href="#">
@@ -47,6 +55,14 @@
         </li>
         @endif
         <li class="treeview {{ ($prefix == '/manualmutu')?'active':'' }}">
+        @if(auth()->user()->usertype == "guest")
+            <li class="{{ ($route == 'manualmutu.view')?'active':'' }}">
+                <a href="{{ route('manualmutu.view')}}">
+                <i class="fa fa-cube"></i>
+                <span>Manual Mutu</span>
+                </a>
+            </li>
+        @endif
         @if(auth()->user()->usertype == "user")
             <li class="{{ ($route == 'manualmutu.view')?'active':'' }}">
                 <a href="{{ route('manualmutu.view')}}">
@@ -70,6 +86,14 @@
         @endif
         </li>
         <li class="treeview {{ ($prefix == '/prosedurmutu')?'active':'' }}">
+        @if(auth()->user()->usertype == "guest")
+            <li class="{{ ($route == 'prosedurmutu.view')?'active':'' }}">
+                <a href="{{ route('prosedurmutu.view')}}">
+                <i class="fa fa-cog"></i>
+                <span>Prosedur Mutu</span>
+                </a>
+            </li>
+        @endif
         @if(auth()->user()->usertype == "user")
             <li class="{{ ($route == 'prosedurmutu.view')?'active':'' }}">
                 <a href="{{ route('prosedurmutu.view')}}">

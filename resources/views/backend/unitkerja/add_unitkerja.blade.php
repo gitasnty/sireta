@@ -27,6 +27,7 @@
 										<option value="" selected="" disabled="">Pilih Tipe</option>
 										<option value="admin">Admin</option>
 										<option value="user">Unit Kerja</option>
+										{{-- <option value="guest">Guest</option> --}}
 									</select>
 								</div>
 							</div>

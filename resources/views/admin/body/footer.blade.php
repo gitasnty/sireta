@@ -6,7 +6,7 @@
 			<a class="nav-link" href="javascript:void(0)">FAQ</a>
 		  </li> --}}
 		  <li class="nav-item">
-			<a class="nav-link" href="#">Sistem Informasi Penjaminan Mutu Internal</a>
+			<a class="nav-link" href="#">Sistem Informasi Penjaminan Mutu Internal SMK Negeri 2 Magelang</a>
 		  </li>
 		</ul>
     </div>

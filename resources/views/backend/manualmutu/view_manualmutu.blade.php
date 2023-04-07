@@ -19,20 +19,30 @@
 				<!-- /.box-header -->
 				<div class="box-body">
 					<div class="table-responsive">
+                        @if(auth()->user()->usertype == "admin")
 					  <table id="example" class="table table-bordered table-hover display nowrap margin-top-10 w-p100">
-						<thead>
+                        @endif
+                        @if(auth()->user()->usertype == "user")
+					  <table id="example" class="table table-bordered table-hover display nowrap margin-top-10 w-p100">
+                        @endif
+                        @if(auth()->user()->usertype == "guest")
+                            <table id="example1" class="table table-bordered table-hover display nowrap margin-top-10 w-p100">
+                        @endif
+						<thead style="text-align: center">
 							<tr>
-								<th>Nomor Dokumen</th>
+								<th>Nomor</th>
 								<th>Nama Dokumen</th>
 								<th>Unit Kerja</th>
 								<th>Standar</th>
 								<th>Periode</th>
 								<th>File</th>
+                                @if(auth()->user()->usertype == "admin")
 								<th>Action</th>
+                                @endif
 
 							</tr>
 						</thead>
-						<tbody>
+						<tbody style="text-align: center">
 
                             @foreach($data as $key=>$document)
 
@@ -43,6 +53,7 @@
 								<td>{{ $document->User->name}}</td>
 								<td>{{ ucfirst($document->standard) }}</td>
 								<td>{{ $document->period }}</td>
+                                @if(auth()->user()->usertype == "admin")
 								<td>
                                     <div class="d-flex justify-content-center">
                                         @if($document->file_path != null)
@@ -52,6 +63,30 @@
                                         @endif
                                      </div>
                                 </td>
+                                @endif
+                                @if(auth()->user()->usertype == "user")
+								<td>
+                                    <div class="d-flex justify-content-center">
+                                        @if($document->file_path != null)
+                                            <a href="{{ route('manualmutu.download', $document) }}" type="button" class="btn btn-circle btn-info"><i class="glyphicon glyphicon-download-alt"></i></a>
+                                        @else
+                                            Tidak ada file
+                                        @endif
+                                     </div>
+                                </td>
+                                @endif
+                                @if(auth()->user()->usertype == "guest")
+                                <td>
+                                    <div class="d-flex justify-content-center">
+                                        @if($document->file_path != null)
+                                            <a href="{{ route('preview', $document) }}" type="button" class="btn btn-circle btn-info"><i class="glyphicon glyphicon-download-alt"></i></a>
+                                        @else
+                                            Tidak ada file
+                                        @endif
+                                     </div>
+                                </td>
+                                @endif
+                                @if(auth()->user()->usertype == "admin")
 								<td>
                                     <div class="d-flex justify-content-center">
                                         <a href="" type="button" class="btn btn-circle btn-primary" data-toggle="modal" data-document-id='{{ $document->id }}' data-target="#uploadDoc-{{ $document->id }}"><i class="glyphicon glyphicon-open"></i></a>
@@ -59,6 +94,7 @@
                                     </div>
 
                                 </td>
+                                @endif
 							</tr>
                             @endforeach
 						</tbody>
