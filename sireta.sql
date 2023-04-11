@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 10, 2023 at 12:15 AM
+-- Generation Time: Apr 11, 2023 at 04:27 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -39,25 +39,6 @@ CREATE TABLE `documents` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `documents`
---
-
-INSERT INTO `documents` (`id`, `code`, `name`, `doctype`, `standard`, `period`, `file_path`, `user_id`, `created_at`, `updated_at`) VALUES
-(89, '1', '1', 'Catatan Mutu', 'Standar 1', 2001, 'upload/TkNjPrijMu0nXI3HmhSIaBrBUxmBQax3bOSq3vLj.jpg', 34, '2023-04-02 18:59:53', '2023-04-06 20:34:19'),
-(91, '1', '1', 'Lain Lain', NULL, 2001, 'upload/5GN1ZtZs9qlLlOAkNupyzCBMl72siGN5OPnsLjUq.doc', 34, '2023-04-02 19:08:59', '2023-04-07 00:49:48'),
-(92, '1', '1', 'Manual Mutu', 'Standar 1', 2001, 'upload/EO8mY1R0miQmpHRqD5eHAg3qo31O1l6LN41RJY4h.pdf', 34, '2023-04-02 19:14:55', '2023-04-07 03:17:21'),
-(93, '1', '1', 'Prosedur Mutu', 'Standar 1', 2001, NULL, 34, '2023-04-02 19:15:32', '2023-04-02 19:15:32'),
-(94, '1', '1', 'Petunjuk Kerja', 'Standar 1', 2001, 'upload/T38SKinZELFhncvVuNBz9feXr4UCyyz2764BYfV9.pdf', 34, '2023-04-02 19:25:55', '2023-04-07 00:44:16'),
-(95, '2', '2', 'Manual Mutu', 'Standar 2', 2020, NULL, 34, '2023-04-06 20:57:47', '2023-04-06 20:57:47'),
-(96, '1', 'Data Prestasi Kelas X RPL 2', 'Manual Mutu', 'Standar 1', 2020, NULL, 34, '2023-04-06 22:01:36', '2023-04-06 22:01:36'),
-(97, '1', '1', 'Manual Mutu', 'Standar 1', 2019, NULL, 34, '2023-04-06 22:23:41', '2023-04-06 22:23:41'),
-(98, '2', '2', 'Manual Mutu', 'Standar 1', 2019, NULL, 34, '2023-04-06 22:23:49', '2023-04-06 22:23:49'),
-(99, '3', '3', 'Manual Mutu', 'Standar 1', 2003, NULL, 34, '2023-04-06 22:23:56', '2023-04-06 22:23:56'),
-(100, '4', '4', 'Manual Mutu', 'Standar 1', 2004, NULL, 34, '2023-04-06 22:24:12', '2023-04-06 22:24:12'),
-(101, '123', '123', 'Manual Mutu', 'Standar 1', 2012, NULL, 34, '2023-04-07 03:40:44', '2023-04-07 03:40:44'),
-(102, '123', '123', 'Prosedur Mutu', 'Standar 1', 2020, NULL, 34, '2023-04-07 03:41:00', '2023-04-07 03:41:00');
 
 -- --------------------------------------------------------
 
@@ -154,7 +135,8 @@ CREATE TABLE `sessions` (
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
 ('8NDZ8gnRisUbbsZfPiztVMLdtGS2PysiC9JbovnZ', 36, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoib3hOVFFqQ2tWQlBCdlkyNENEdkZmclNVSGdkY01LYklHbzNoTHdUQSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9kYXNoYm9hcmQiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aTozNjtzOjIxOiJwYXNzd29yZF9oYXNoX3NhbmN0dW0iO3M6NjA6IiQyeSQxMCR0NzFaR253bjFjMVY2V3BpczlVUFlPdE0udHZxL1ZMemNxdzBCbHcybHBsRTk1QnBjWm5GQyI7fQ==', 1680859717),
 ('OaOuRsJ0ATimkZLBgEcFQpS7n1zk1DVMIRxIpOXJ', 35, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36', 'YTo1OntzOjk6Il9wcmV2aW91cyI7YToxOntzOjM6InVybCI7czozMToiaHR0cDovLzEyNy4wLjAuMTo4MDAwL2Rhc2hib2FyZCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NjoiX3Rva2VuIjtzOjQwOiJVZmRyZmQxdHlHWEg1a1hmNjU1eVBVVFRoRmZkRzFYeHVKRjNiTlpoIjtzOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aTozNTtzOjIxOiJwYXNzd29yZF9oYXNoX3NhbmN0dW0iO3M6NjA6IiQyeSQxMCRid2pERjgua09VWWFmV2gxZnlKbHNPQk1hcllRSGp4dmZwdVlRZGFJVWdzbmZ6ZGp1YzhuNiI7fQ==', 1680864382),
-('qilenMldAYbMabEOyj29vJfEZJnKk10loFRsraPL', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36', 'YTozOntzOjk6Il9wcmV2aW91cyI7YToxOntzOjM6InVybCI7czoyNzoiaHR0cDovLzEyNy4wLjAuMTo4MDAwL2xvZ2luIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo2OiJfdG9rZW4iO3M6NDA6InNIckh6MTFCNzJwR29BakVORGY0ZnlKM0tRNXIxSU45eUJ1WXlUeVMiO30=', 1680864154);
+('qilenMldAYbMabEOyj29vJfEZJnKk10loFRsraPL', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36', 'YTozOntzOjk6Il9wcmV2aW91cyI7YToxOntzOjM6InVybCI7czoyNzoiaHR0cDovLzEyNy4wLjAuMTo4MDAwL2xvZ2luIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo2OiJfdG9rZW4iO3M6NDA6InNIckh6MTFCNzJwR29BakVORGY0ZnlKM0tRNXIxSU45eUJ1WXlUeVMiO30=', 1680864154),
+('rgQ4NuwUcfDCuRw99NDuR6pPSRPxZgsZYabVOMSU', NULL, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36', 'YTozOntzOjk6Il9wcmV2aW91cyI7YToxOntzOjM6InVybCI7czo0NjoiaHR0cDovL2xvY2FsaG9zdC9iaXNtaWxsYWgvc2lyZXRhL3B1YmxpYy9sb2dpbiI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NjoiX3Rva2VuIjtzOjQwOiJLSTdibnEzOERPS3NOamFzSmFxQ2UwSjdLSk5qMW5aekNQWm9VRFM5Ijt9', 1681179912);
 
 -- --------------------------------------------------------
 
