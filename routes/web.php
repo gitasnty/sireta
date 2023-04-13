@@ -136,9 +136,6 @@ Route::group([
     'prefix' => 'lainlain',
     'as' => 'lainlain.'
 ], function(){
-    // Route::get('/organisasi', [lainlainController::class, 'viewOrganisasi'])->name('viewOrganisasi');
-    // Route::get('/sasaranmutu', [lainlainController::class, 'viewSasaranmutu'])->name('viewSasaranmutu');
-    // Route::get('/proker', [lainlainController::class, 'viewProker'])->name('viewProker');
     Route::get('/view', [lainlainController::class, 'view'])->name('view');
     Route::get('/add', [lainlainController::class, 'add'])->name('add');
     Route::post('/upload', [lainlainController::class, 'upload'])->name('upload');
